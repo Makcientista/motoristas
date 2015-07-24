@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  rf: MyString
+  cargo: MyString
+  secao_original: MyString
+  secao_atual: MyString
+  pontuacao: MyString
+  status: MyString
+
+two:
+  nome: MyString
+  rf: MyString
+  cargo: MyString
+  secao_original: MyString
+  secao_atual: MyString
+  pontuacao: MyString
+  status: MyString
