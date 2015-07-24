@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  get 'listas/vila_mariana'
+
+  get 'listas/vila_guilherme'
+
+  get 'listas/licenca_medica'
+
+  get 'listas/falta'
+
+  get 'listas/recorps'
+
+  get 'listas/outras_areas'
+
+  get 'listas/readaptados'
+
+  get 'listas/aposentados'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
