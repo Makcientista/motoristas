@@ -23,4 +23,7 @@ class ListasController < ApplicationController
 
   def aposentados
   end
+  
+  def geral
+  end
 end
