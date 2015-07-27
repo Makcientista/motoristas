@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'home'           => 'pages#home'
+  root                    'pages#home'
   get 'vila_mariana'   => 'listas#vila_mariana'
   get 'vila_guilherme' => 'listas#vila_guilherme'
   get 'licenca_medica' => 'listas#licenca_medica'

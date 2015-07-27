@@ -1,5 +1,9 @@
 class ListasController < ApplicationController
   
+  def geral
+    @motoristas = Motorista.all
+  end
+  
   def vila_mariana
     @motoristas = Motorista.where("status = 'Vila Mariana'")
   end
@@ -30,9 +34,5 @@ class ListasController < ApplicationController
 
   def aposentados
     @motoristas = Motorista.where("status = 'Aposentado'")
-  end
-  
-  def geral
-    @motoristas = Motorista.all
   end
 end
