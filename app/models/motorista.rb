@@ -17,6 +17,7 @@ class Motorista < ActiveRecord::Base
   #    'Recorps'
   
   # status possiveis:
+  #    'Ativo'
   #    'Licença Médica'
   #    'Processo Administrativo de Falta'
   #    'Aposentado'
