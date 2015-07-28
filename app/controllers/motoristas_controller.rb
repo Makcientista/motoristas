@@ -13,26 +13,31 @@ class MotoristasController < ApplicationController
     end
   end
   
+  def index
+    @motorista = Motorista.find_by(rf: params[:search])
+    redirect_to @motorista
+  end
+  
   def show
-    # @motorista = Motorista.find_by(rf: rf)
+    @motorista = Motorista.find_by(params[:id])
   end
   
   def edit
-    # @motorista = Motorista.find_by(rf: rf)
+    @motorista = Motorista.find_by(params[:id])
   end
   
   def update
-    # @motorista = Motorista.find(rf: rf)
-    # if @motorista.update_attributes(motorista_params)
-    #   redirect_to root_url
-    # else
-    #   render 'edit'
-    # end
+    @motorista = Motorista.find(params[:id])
+    if @motorista.update_attributes(motorista_params)
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
   
   def destroy
-    # Motorista.find(rf: rf).destroy
-    # redirect_to root_url
+    Motorista.find(params[:id]).destroy
+    redirect_to root_url
   end
   
   private

@@ -10,11 +10,11 @@ class Motorista < ActiveRecord::Base
  validates :status, presence: true
  
   # locais possiveis: 
-  #    'Vila Mariana'
-  #    'Vila Guilherme'
+  #    'VTRAF V. MARIAN.'
+  #    'TRAF V. GUILH.
   #    'Outras Áreas'
   #    'Readaptado'
-  #    'Recorps'
+  #    'RECORPS'
   
   # status possiveis:
   #    'Ativo'

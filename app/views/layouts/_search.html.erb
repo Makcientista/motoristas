@@ -1,0 +1,6 @@
+<%= form_tag motoristas_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'Insira o RF do motorista' %>
+    <%= submit_tag "Buscar Motorista", :name => nil %>
+  </p>
+<% end %>

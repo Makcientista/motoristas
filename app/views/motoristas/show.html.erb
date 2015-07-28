@@ -1,10 +1,4 @@
-<div class="dados">
-  <p>Nome: </p>
-  <p>RF: </p>
-  <p>Cargo: </p>
-  <p>Seção Original: </p>
-  <p>Seção Atual: </p>
-  <p>Pontuação: </p>
-  <p>Local: </p>
-  <p>Status: </p>
-</div>
+<h1 style="margin-bottom: 20px">
+  <%= @motorista.nome %>
+</h1>
+<%= render 'layouts/lista', object: @motorista %>
