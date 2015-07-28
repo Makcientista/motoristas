@@ -12,6 +12,9 @@
       <%= link_to "Readaptados",                      readaptados_path,    class: "btn btn-block btn-default"  %>
       <%= link_to "Aposentados",                      aposentados_path,    class: "btn btn-block btn-default"  %>
     </div>
+    <form method="link" action=<%= new_motorista_path %>>
+      <input type="submit" value="Cadastrar novo motorista">
+    </form>
     <%= render 'layouts/search' %>
   </div>
 </div>
