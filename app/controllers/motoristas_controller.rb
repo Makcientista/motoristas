@@ -37,7 +37,7 @@ class MotoristasController < ApplicationController
   
   def destroy
     Motorista.find(params[:id]).destroy
-    redirect_to root_url
+    redirect_to(:back)                   # da reload na pagina atual
   end
   
   private

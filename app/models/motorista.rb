@@ -10,8 +10,8 @@ class Motorista < ActiveRecord::Base
  validates :status, presence: true
  
   # locais possiveis: 
-  #    'VTRAF V. MARIAN.'
-  #    'TRAF V. GUILH.
+  #    'TRAF V. MARIAN.'
+  #    'TRAF V. GUILH.'
   #    'Outras Áreas'
   #    'Readaptado'
   #    'RECORPS'

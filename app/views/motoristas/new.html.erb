@@ -5,21 +5,21 @@
     
     <%= form_for(@motorista) do |f| %>
       <%= f.label :nome, "Nome" %>
-      <%= f.text_field :nome, class: 'form-control' %>
+      <%= f.text_field :nome, class: 'form-control formulario' %>
       <%= f.label :rf, "RF" %>
-      <%= f.text_field :rf, class: 'form-control' %>
+      <%= f.text_field :rf, maxlength: 7, class: 'form-control formulario' %>
       <%= f.label :cargo, "Cargo" %>
-      <%= f.text_field :cargo, class: 'form-control' %>
+      <%= f.text_field :cargo, class: 'form-control formulario' %>
       <%= f.label :secao_original, "Seção Original"%>
-      <%= f.text_field :secao_original, class: 'form-control' %>
+      <%= f.text_field :secao_original, class: 'form-control formulario' %>
       <%= f.label :secao_atual, "Seção Atual"%>
-      <%= f.text_field :secao_atual, class: 'form-control' %>
+      <%= f.text_field :secao_atual, class: 'form-control formulario' %>
       <%= f.label :pontuacao, "Pontuação" %>
-      <%= f.text_field :pontuacao, class: 'form-control' %>
+      <%= f.text_field :pontuacao, class: 'form-control formulario' %>
       <%= f.label :local, "Local" %>
-      <%= f.text_field :local, class: 'form-control' %>
+      <%= f.select(:local, [["TRAF V. MARIAN."],["TRAF V. GUILH."],["Outras Áreas"],["Readaptado"],["RECORPS"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
       <%= f.label :status, "Status" %>
-      <%= f.text_field :status, class: 'form-control' %>
+      <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
       <%= f.submit "Registrar Motorista", class: "btn btn-primary btn-block" %>
     <% end %>
     
