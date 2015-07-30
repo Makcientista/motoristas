@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :logged_in_user
   
   def home
   end
@@ -16,4 +17,12 @@ class PagesController < ApplicationController
     @total = 222 - @falta - @outras_areas - @readaptados - @recorps
     # esse numero 222 precisa ser caculado pelo programa, ele seria @vila_mariana + @vila_guilherme
   end
+  
+  private
+  
+    def logged_in_user
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
 end

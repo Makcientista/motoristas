@@ -1,22 +1,31 @@
 <nav class="navbar navbar-fixed-top navbar-default" style="line-height: 50px; padding: 0px 25px 0px 0px">
   <div class="container-fluid">
-    <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to "Página Inicial", root_url %></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <div style="height: 34px; margin-right: 50px">
-          <%= link_to "Cadastrar novo motorista", new_motorista_path, class: "btn btn-default", style: "vertical-align: initial" %>
-        </div>
-      </li>
-      <li>
-        <div>
-          <%= form_tag motoristas_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], placeholder: 'Insira o RF do motorista', class: "form-control", style: "width: 180px; display: inline;" %>
-            <%= submit_tag "Buscar", :name => nil, class: "btn-default form-control", style: "width: 75px; display: inline;" %>
-          <% end %>
-        </div>
-      </li>
-    </ul>
+    <% if logged_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "Página Inicial", root_url %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div style="height: 34px; margin-right: 50px">
+            <%= link_to "Cadastrar novo motorista", new_motorista_path, class: "btn btn-default", style: "vertical-align: initial" %>
+          </div>
+        </li>
+        <li>
+          <div>
+            <%= form_tag motoristas_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search], placeholder: 'Insira o RF do motorista', class: "form-control", style: "width: 180px; display: inline;" %>
+              <%= submit_tag "Buscar", :name => nil, class: "btn-default form-control", style: "width: 75px; display: inline;" %>
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <%= link_to "Log out", logout_path, method: "delete", style:"margin-left: 25px;" %>
+        </li>
+      </ul>
+    <% else %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href"#">Motoristas</a></li>
+      </ul>
+    <% end %>
   </div>
 </nav>

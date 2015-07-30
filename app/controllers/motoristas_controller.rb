@@ -1,4 +1,5 @@
 class MotoristasController < ApplicationController
+  before_action :logged_in_user
   
   def new
     @motorista = Motorista.new
@@ -50,4 +51,9 @@ class MotoristasController < ApplicationController
                                         :secao_atual, :pontuacao, :local, :status)
     end
   
+    def logged_in_user
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
 end

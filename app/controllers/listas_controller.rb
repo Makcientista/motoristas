@@ -1,4 +1,5 @@
 class ListasController < ApplicationController
+  before_action :logged_in_user
   
   def geral
     @motoristas = Motorista.all
@@ -44,4 +45,12 @@ class ListasController < ApplicationController
   def falta
     @motoristas = Motorista.where("status = 'Processo Administrativo de Falta'")
   end
+  
+  private
+  
+    def logged_in_user
+      unless logged_in?
+        redirect_to login_path
+      end
+    end
 end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'sessions/new'
+
   root                    'pages#home'
   get 'vila_mariana'   => 'listas#vila_mariana'
   get 'vila_guilherme' => 'listas#vila_guilherme'
@@ -11,6 +13,9 @@ Rails.application.routes.draw do
   get 'aposentados'    => 'listas#aposentados'
   get 'geral'          => 'listas#geral'
   get 'relatorio'      => 'pages#relatorio'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   resources :motoristas
   
 end
