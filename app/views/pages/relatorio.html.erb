@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 style="text-align: center; margin-bottom: 40px;">Relatório</h1>
+    <div class="tabela">
+      <table class="table table-condensed">
+        <thead>
+          <tr class="back">
+            <th>Descrição</th>
+            <th>Nº</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="esq">Nª de cargos previstos por Lei</th>
+            <td>450</td>
+          </tr>
+          <tr>
+            <th class="esq">Cargos vagos</th>
+            <td>-228</td>
+          </tr>
+          <tr class="back">
+            <th>Total de Cargos Preenchidos</th>
+            <th>222</th>
+          </tr>
+          <tr>
+            <th class="esq">Servidores em Processo Administrativo de Falta</th>
+            <td>-<%= @falta %></td>
+          </tr>
+          <tr>
+            <th class="esq">Servidores lotados em outras áreas (Apoio ao Setor Tráfego, Suporte, Área Administrativa, Cargos Comiissionados)</th>
+            <td>-<%= @outras_areas %></td>
+          </tr>
+          <tr>
+            <th class="esq">Servidores Readaptados</th>
+            <td>-<%= @readaptados %></td>
+          </tr>
+          <tr>
+            <th class="esq">Servidores prestando serviço em RECORPS</th>
+            <td>-<%= @recorps %></td>
+          </tr>
+          <tr class="back">
+            <th>Total de Cargos Preenchidos</th>
+            <th><%= @total %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row" style="margin-top: 50px">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="tabela">
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <th class="esq">Observação</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td class="esq">Servidores que reúnem condições para requerer aposentadoria</td>
+            <td class="dir">22</td>
+          </tr>
+          <tr>
+            <th class="esq">Distribuição do efetivo em turnos</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td class="esq">4 turnos de 12 hs X 36</td>
+            <td class="dir">28 motoristas por turno</td>
+          </tr>
+          <tr>
+            <th class="esq">Cálculo do Atendimento Médio (Estimada)</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td class="esq">3,5 translados por motorista X 28 motoristas por turno</td>
+            <td class="dir">98 translados por motorista</td>
+          </tr>
+          <tr>
+            <th class="esq">Cálculo Estimativo do Tempo do Espera de Translado</th>
+            <th></th>
+          </tr>
+          <tr>
+            <td class="esq">98 remoções por turno / 12 horas</td>
+            <td class="dir">8 horas</td>
+          </tr>
+          <tr>
+            <th class="esq">Cálculo Estimativo do Tempo do Espera de Translado</th>
+            <th></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

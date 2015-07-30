@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'readaptados'    => 'listas#readaptados'
   get 'aposentados'    => 'listas#aposentados'
   get 'geral'          => 'listas#geral'
+  get 'relatorio'      => 'pages#relatorio'
   resources :motoristas
   
 end

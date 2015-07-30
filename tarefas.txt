@@ -1,1 +1,6 @@
-combo boxes
+- Popular banco de dados
+
+- Fazer autentificação de usuário
+
+- Finalizar relatório (falta fazer o programa calcular o total de cargos preenchidos automaticamente)
+

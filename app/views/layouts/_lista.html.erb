@@ -1,3 +1,6 @@
+<% if object.class == Motorista::ActiveRecord_Relation %>
+<h5>Numero de motoristas: <%= object.count %></h5>
+<% end %>
 <div class="tabela">
   <table class="table table-condensed table-striped">
     <thead>

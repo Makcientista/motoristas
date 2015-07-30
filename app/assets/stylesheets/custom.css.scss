@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 td, th {
-   text-align: center;
+  text-align: center;
 }
 
 .formulario {
@@ -11,4 +11,16 @@ td, th {
 
 body { 
   padding-top: 70px;
+}
+
+.esq {
+  text-align: left;
+}
+
+.back {
+  background-color: #E0E0E0;
+}
+
+.dir {
+  text-align: right;
 }
