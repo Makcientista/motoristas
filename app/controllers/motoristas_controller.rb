@@ -14,16 +14,19 @@ class MotoristasController < ApplicationController
   end
   
   def index
-    @motorista = Motorista.find_by(rf: params[:search])
-    redirect_to @motorista
+    if @motorista = Motorista.find_by(rf: params[:search])
+      redirect_to @motorista
+    else
+      redirect_to root_url
+    end
   end
   
   def show
-    @motorista = Motorista.find_by(params[:id])
+    @motorista = Motorista.find(params[:id])
   end
   
   def edit
-    @motorista = Motorista.find_by(params[:id])
+    @motorista = Motorista.find(params[:id])
   end
   
   def update
@@ -37,7 +40,7 @@ class MotoristasController < ApplicationController
   
   def destroy
     Motorista.find(params[:id]).destroy
-    redirect_to(:back)                   # da reload na pagina atual
+    redirect_to root_url
   end
   
   private
