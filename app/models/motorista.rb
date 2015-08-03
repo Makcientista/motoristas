@@ -13,7 +13,6 @@ class Motorista < ActiveRecord::Base
   #    'TRAF V. MARIAN.'
   #    'TRAF V. GUILH.'
   #    'Outras Áreas'
-  #    'Readaptado'
   #    'RECORPS'
   
   # status possiveis:
@@ -21,6 +20,7 @@ class Motorista < ActiveRecord::Base
   #    'Licença Médica'
   #    'Processo Administrativo de Falta'
   #    'Aposentado'
+  #    'Readaptado'
      
  
 end

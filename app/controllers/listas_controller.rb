@@ -7,12 +7,11 @@ class ListasController < ApplicationController
     @vila_guilherme = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'")
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'")
     @outras_areas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'")
-    @readaptados = Motorista.where("local = 'Readaptado' AND status ='Ativo'")
+    @readaptados = Motorista.where("status ='Readaptado'")
     @aposentados = Motorista.where("status = 'Aposentado'")
     @licenca_medica = Motorista.where("status = 'Licença Médica'")
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'")
   end
-     
   
   def vila_mariana
     @motoristas = Motorista.where("local = 'TRAF V. MARIAN.' AND status ='Ativo'")
@@ -31,7 +30,7 @@ class ListasController < ApplicationController
   end
 
   def readaptados
-    @motoristas = Motorista.where("local = 'Readaptado' AND status ='Ativo'")
+    @readaptados = Motorista.where("status ='Readaptado'")
   end
 
   def aposentados

@@ -4,3 +4,4 @@
 
 - Finalizar relatório (falta fazer o programa calcular o total de cargos preenchidos automaticamente)
 
+- Readaptado não é local, é status
