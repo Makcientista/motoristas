@@ -12,11 +12,26 @@
         <th>Seção Original</th>
         <th>Seção Atual</th>
         <th>Pontuação</th>
-        <% if (object.first.local == "TRAF V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF V. MARIAN." && object.first.status == "Ativo") %>
-          <th>Pólo</th>
+        <% if object.class == Motorista::ActiveRecord_Relation %>
+          <% if (object.first.local == "TRAF V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF V. MARIAN." && object.first.status == "Ativo") %>
+            <th>Pólo</th>
+          <% else %>
+            <th>Local</th>
+          <% end %>
         <% else %>
-          <th>Local</th>
+          <% if (object.local == "TRAF V. GUILH." && object.status == "Ativo") || (object.local == "TRAF V. MARIAN." && object.status == "Ativo") %>
+            <th>Pólo</th>
+          <% else %>
+            <th>Local</th>
+          <% end %>
         <% end %>
+        
+        <th>Data de Nascimento</th>
+        <th>Idade</th>
+        <th>Data do Termo de Posse</th>
+        <th>Tempo de Contribuição</th>
+        <th>Condições Para Aposentadoria</th>
+        
         <th>Status</th>
         <th>Editar</th>
         <th>Deletar</th>
@@ -34,6 +49,13 @@
           <td><%= object.secao_atual %></td>
           <td><%= object.pontuacao %></td>
           <td><%= object.local %></td>
+          
+          <td><%= object.data_de_nasc %></td>
+          <td>Idade</td>
+          <td><%= object.data_posse %></td>
+          <td>Tempo de Contribuição</td>
+          <td><%= object.cond_aposentadoria %></td>
+          
           <td><%= object.status %></td>
           <td><%= link_to "Editar", edit_motorista_path(object) %></td>
           <td><%= link_to "Deletar", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
@@ -49,6 +71,13 @@
             <td><%= m.secao_atual %></td>
             <td><%= m.pontuacao %></td>
             <td><%= m.local %></td>
+          
+            <td><%= m.data_de_nasc %></td>
+            <td></td>
+            <td><%= m.data_posse %></td>
+            <td></td>
+            <td><%= m.cond_aposentadoria %></td>
+          
             <td><%= m.status %></td>
             <td><%= link_to "Editar", edit_motorista_path(m) %></td>
             <td><%= link_to "Deletar", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>

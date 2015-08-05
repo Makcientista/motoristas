@@ -1,3 +1,5 @@
+Dicas Rails => https://docs.google.com/document/d/1wU_Ylo1nY6LT5uV-tyE9IizZQ1DaeYHRyDsJQEaZ11Y/edit?usp=sharing
+
 secao -> combobox
 
 + 5 campos -> data de nascimento
