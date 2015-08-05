@@ -1,4 +1,4 @@
-outras areas - filtrar por secao
+secao -> combobox
 
 + 5 campos -> data de nascimento
               idade - 65 -> calculado

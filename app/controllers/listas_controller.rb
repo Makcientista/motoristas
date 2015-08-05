@@ -51,8 +51,35 @@ class ListasController < ApplicationController
   end
   
   def outras_areas_filtrado
-    @motoristas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'").order(:secao_atual)
-    @x = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = ''")
+    @secoes = [
+      @a1	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'ADM.CEMIT.'"),
+      @a2	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG. FORMOSA'"),
+      @a3	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG. H.S.P.M.'"),
+      @a4	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG.ARACA'"),
+      @a5	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG.CENTRAL'"),
+      @a6	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG.Q. PARADA'"),
+      @a7	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'ALMOX.'"),
+      @a8	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'C.N.CACHOE.'"),
+      @a9	 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'C.SANTANA'"),
+      @a10 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'Ch. DIV.DE TRANS.'"),
+      @a11 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'Crematório'"),
+      @a12 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'D. PRODUCAO'"),
+      @a13 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'EST. URNAS CAIX'"),
+      @a14 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'ETQ URNAS CAIX'"),
+      @a15 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'EXP. TRAF'"),
+      @a16 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'FISCALIZ.'"),
+      @a17 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'FM 21'"),
+      @a18 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'MAN. DA SEDE'"),
+      @a19 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'MAN.A.VERDES'"),
+      @a20 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'MANUT. DA SEDE'"),
+      @a21 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'S. PEDRO'"),
+      @a22 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'S. PESSOAL'"),
+      @a23 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'S. SOC./ FM.21'"),
+      @a24 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'VEL. S. PAULO'"),
+      @a25 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'VELORIO ARACA'"),
+      @a26 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'VISTORIA'"),
+      @a27 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'Velório Santana'")
+    ]
   end
   
   private

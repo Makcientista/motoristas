@@ -1,39 +1,6 @@
-<h5>Numero de motoristas: <%= @motoristas.count %></h5>
-<div class="tabela">
-  <table class="table table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>RF</th>
-        <th>Cargo</th>
-        <th>Seção Original</th>
-        <th>Seção Atual</th>
-        <th>Pontuação</th>
-        <th>Local</th>
-        <th>Status</th>
-        <th>Editar</th>
-        <th>Deletar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% contador = 1 %>
-      <% @motoristas.each do |m| %>
-        <tr>
-          <th><%= contador %></th>
-          <td><%= m.nome %></td>
-          <td><%= m.rf %></td>
-          <td><%= m.cargo %></td>
-          <td><%= m.secao_original %></td>
-          <td><%= m.secao_atual %></td>
-          <td><%= m.pontuacao %></td>
-          <td><%= m.local %></td>
-          <td><%= m.status %></td>
-          <td><%= link_to "Editar", edit_motorista_path(m) %></td>
-          <td><%= link_to "Deletar", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
-        </tr>
-        <% contador = contador + 1 %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<h1>Motoristas - Outras Áreas Filtrado</h1>
+<%= link_to "Voltar", outras_areas_path, class: "btn btn-default" %>
+<% @secoes.each do |s| %>
+  <h3><%= s.first.secao_atual %></h3>
+  <%= render 'layouts/lista', object: s %>
+<% end %>
