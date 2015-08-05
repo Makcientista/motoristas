@@ -1,7 +1,21 @@
-- Popular banco de dados
+completar banco de dados
 
-- Completar autentificação de usuário? (criar um usuário administrador q pode cadastrar novos usuários, mas eu acho que não precisa disso)
+local (vila guilh e marin) = polo
 
-- Finalizar relatório (falta fazer o programa calcular o total de cargos preenchidos automaticamente)
+outras areas - filtrar por secao
 
-- Readaptado não é local, é status
++ 5 campos ->  data de nascimento
+                    idade - 65 -> calculado
+                    data do termo de posse
+                    tempo de contribuição - 35 anos -> calculado
+                    condições para aposentadoria -> é calculado (se tiver 65 anos ou 35 anos de contribuição, já passa) -> bolean calculado
+                    
+relatorio -> Servidores que reúnem condições para requerer aposentadoria -> tem q ser calculado
+                    
+Motoristas - opção de ordenar por idade ou data do termo de posse (data de quando ele foi contratado)
+
+Tratamento de erros
+
+Mensagem de erro pra quando o RF buscado não existir
+
+logo

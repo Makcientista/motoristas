@@ -67,7 +67,7 @@
           </tr>
           <tr>
             <th class="esq">Cargos vagos</th>
-            <td>-228</td>
+            <td>-<%= 450 - @motoristas %></td>
           </tr>
           <tr class="back">
             <th>Total de Cargos Preenchidos</th>
@@ -78,7 +78,7 @@
             <td>-<%= @falta %></td>
           </tr>
           <tr>
-            <th class="esq">Servidores lotados em outras áreas (Apoio ao Setor Tráfego, Suporte, Área Administrativa, Cargos Comiissionados)</th>
+            <th class="esq">Servidores lotados em outras áreas (Apoio ao Setor Tráfego, Suporte, Área Administrativa, Cargos Comissionados)</th>
             <td>-<%= @outras_areas %></td>
           </tr>
           <tr>
@@ -90,7 +90,7 @@
             <td>-<%= @recorps %></td>
           </tr>
           <tr class="back">
-            <th>Total de Cargos Preenchidos</th>
+            <th>Total de Motoristas Efetivos</th>
             <th><%= @total %></th>
           </tr>
         </tbody>
@@ -120,24 +120,20 @@
             <td class="dir">28 motoristas por turno</td>
           </tr>
           <tr>
-            <th class="esq">Cálculo do Atendimento Médio (Estimada)</th>
+            <th class="esq">Cálculo Estimado de Traslados por Turno</th>
             <th></th>
           </tr>
           <tr>
-            <td class="esq">3,5 translados por motorista X 28 motoristas por turno</td>
-            <td class="dir">98 translados por motorista</td>
+            <td class="esq">3,5 traslados por motorista X 28 motoristas por turno</td>
+            <td class="dir">98 traslados por turno</td>
           </tr>
           <tr>
-            <th class="esq">Cálculo Estimativo do Tempo do Espera de Translado</th>
+            <th class="esq">Cálculo Estimativo do Tempo do Espera de Traslado</th>
             <th></th>
           </tr>
           <tr>
             <td class="esq">98 remoções por turno / 12 horas</td>
             <td class="dir">8 horas</td>
-          </tr>
-          <tr>
-            <th class="esq">Cálculo Estimativo do Tempo do Espera de Translado</th>
-            <th></th>
           </tr>
         </tbody>
       </table>
