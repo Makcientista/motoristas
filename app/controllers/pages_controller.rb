@@ -10,6 +10,7 @@ class PagesController < ApplicationController
     @vila_guilherme = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'").count
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'").count
     @outras_areas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'").count
+    @nao_localizados = Motorista.where("local = 'Não Localizado'").count
     @readaptados = Motorista.where("status ='Readaptado'").count
     @aposentados = Motorista.where("status = 'Aposentado'").count
     @licenca_medica = Motorista.where("status = 'Licença Médica'").count

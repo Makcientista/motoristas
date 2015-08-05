@@ -17,7 +17,7 @@
       <%= f.label :pontuacao, "Pontuação" %>
       <%= f.text_field :pontuacao, class: 'form-control formulario' %>
       <%= f.label :local, "Local" %>
-      <%= f.select(:local, [["TRAF V. MARIAN."],["TRAF V. GUILH."],["Outras Áreas"],["RECORPS"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
+      <%= f.select(:local, [["TRAF V. MARIAN."],["TRAF V. GUILH."],["Outras Áreas"],["RECORPS"],["Não Localizado"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
       <%= f.label :status, "Status" %>
       <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
       <%= f.submit "Registrar Motorista", class: "btn btn-primary btn-block" %>

@@ -227,6 +227,21 @@ Motorista.create(nome:'RENATO ARAUJO SILVA', rf:'38862', cargo:'AG. APOIO N-I CA
 Motorista.create(nome:'SATURNINO FERREIRA DOS SANTOS', rf:'36832', cargo:'AG. APOIO N-I CAT.5', secao_original: '', secao_atual:'PROTOCOLO',pontuacao:'',local:'Outras Áreas',status:'Readaptado')
 Motorista.create(nome:'VALDO DE SIMONI', rf:'37402', cargo:'ENC.S.I/AB.LUBR.VEIC', secao_original: '', secao_atual:'TRAF V. GUILH.',pontuacao:'',local:'TRAF V. GUILH.',status:'Readaptado')
 
+Motorista.create(nome:'Antonio Carlos Martins', rf:'19882', cargo:'Motorista', secao_original: '', secao_atual:'', pontuacao:'', local:'Não Localizado',status:'Licença Médica')
+Motorista.create(nome:'Antonio Roberto Vieira', rf:'29962', cargo:'Motorista', secao_original: '', secao_atual:'', pontuacao:'', local:'Não Localizado',status:'Licença Médica')
+Motorista.create(nome:'Antonio Tadeu Martuzzo', rf:'41082', cargo:'Motorista', secao_original: '', secao_atual:'', pontuacao:'', local:'Não Localizado',status:'Licença Médica')
+
+Motorista.create(nome:'Abrão Mariano', rf:'30782', cargo:'Motorista', secao_original: '', secao_atual:'Tráfego/Fax',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'Alceu Mendes de Aguiar', rf:'9502', cargo:'Motorista', secao_original: '', secao_atual:'',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'Henrique José Marques da Silva', rf:'20872', cargo:'Motorista', secao_original: '', secao_atual:'Vistoria',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'Jair Rodrigues dos Santos', rf:'29352', cargo:'Motorista', secao_original: '', secao_atual:'',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'Jairo Pires', rf:'29822', cargo:'Motorista', secao_original: '', secao_atual:'Licença Médica',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'João Batista de Oliveira', rf:'21482', cargo:'Motorista', secao_original: '', secao_atual:'Mot. Almox.',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+Motorista.create(nome:'Moises Luiz de Melo', rf:'20212', cargo:'Motorista', secao_original: '', secao_atual:'Vistoria',pontuacao:'',local:'Não Localizado',status:'Readaptado')
+
+Motorista.create(nome:'CEZAR LISBOA VIDAL', rf:'22902', cargo:'MOTORISTA/QPA7E', secao_original: '', secao_atual:'EXP.P.A.',pontuacao:'',local:'',status:'Aposentado')
+Motorista.create(nome:'APARECIDO DA SILVA PEREIRA', rf:'26502', cargo:'AG. APOIO N-II CAT.4', secao_original: '', secao_atual:'TRAF V. GUILH',pontuacao:'',local:'',status:'Aposentado')
+
 
 
 

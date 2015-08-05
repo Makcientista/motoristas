@@ -12,7 +12,11 @@
         <th>Seção Original</th>
         <th>Seção Atual</th>
         <th>Pontuação</th>
-        <th>Local</th>
+        <% if (object.first.local == "TRAF V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF V. MARIAN." && object.first.status == "Ativo") %>
+          <th>Pólo</th>
+        <% else %>
+          <th>Local</th>
+        <% end %>
         <th>Status</th>
         <th>Editar</th>
         <th>Deletar</th>

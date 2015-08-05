@@ -11,6 +11,7 @@ class ListasController < ApplicationController
     @aposentados = Motorista.where("status = 'Aposentado'")
     @licenca_medica = Motorista.where("status = 'Licença Médica'")
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'")
+    @nao_localizados = Motorista.where("local = 'Não Localizado'")
   end
   
   def vila_mariana
@@ -28,6 +29,10 @@ class ListasController < ApplicationController
   def outras_areas
     @motoristas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'")
   end
+  
+  def nao_localizados
+    @motoristas = Motorista.where("local = 'Não Localizado'")
+  end
 
   def readaptados
     @readaptados = Motorista.where("status ='Readaptado'")
@@ -43,6 +48,11 @@ class ListasController < ApplicationController
 
   def falta
     @motoristas = Motorista.where("status = 'Processo Administrativo de Falta'")
+  end
+  
+  def outras_areas_filtrado
+    @motoristas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'").order(:secao_atual)
+    @x = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = ''")
   end
   
   private

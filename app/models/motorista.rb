@@ -14,6 +14,7 @@ class Motorista < ActiveRecord::Base
   #    'TRAF V. GUILH.'
   #    'Outras Áreas'
   #    'RECORPS'
+  #    'Não Localizado'
   
   # status possiveis:
   #    'Ativo'

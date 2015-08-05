@@ -1,14 +1,10 @@
-completar banco de dados
-
-local (vila guilh e marin) = polo
-
 outras areas - filtrar por secao
 
-+ 5 campos ->  data de nascimento
-                    idade - 65 -> calculado
-                    data do termo de posse
-                    tempo de contribuição - 35 anos -> calculado
-                    condições para aposentadoria -> é calculado (se tiver 65 anos ou 35 anos de contribuição, já passa) -> bolean calculado
++ 5 campos -> data de nascimento
+              idade - 65 -> calculado
+              data do termo de posse
+              tempo de contribuição - 35 anos -> calculado
+              condições para aposentadoria -> é calculado (se tiver 65 anos ou 35 anos de contribuição, já passa) -> bolean calculado
                     
 relatorio -> Servidores que reúnem condições para requerer aposentadoria -> tem q ser calculado
                     
