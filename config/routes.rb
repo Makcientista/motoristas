@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'geral'                 => 'listas#geral'
   get 'nao_localizados'       => 'listas#nao_localizados'
   get 'relatorio'             => 'pages#relatorio'
+  get 'geral_idade'           => 'listas#geral_idade'
+  get 'geral_contribuicao'    => 'listas#geral_contribuicao'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

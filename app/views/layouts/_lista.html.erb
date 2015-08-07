@@ -25,13 +25,11 @@
             <th>Local</th>
           <% end %>
         <% end %>
-        
         <th>Data de Nascimento</th>
         <th>Idade</th>
         <th>Data do Termo de Posse</th>
         <th>Tempo de Contribuição</th>
         <th>Condições Para Aposentadoria</th>
-        
         <th>Status</th>
         <th>Editar</th>
         <th>Deletar</th>
@@ -49,13 +47,15 @@
           <td><%= object.secao_atual %></td>
           <td><%= object.pontuacao %></td>
           <td><%= object.local %></td>
-          
-          <td><%= object.data_de_nasc %></td>
-          <td>Idade</td>
-          <td><%= object.data_posse %></td>
-          <td>Tempo de Contribuição</td>
-          <td><%= object.cond_aposentadoria %></td>
-          
+          <td><%= object.data_de_nasc.strftime("%d/%m/%Y") if object.data_de_nasc %></td>
+          <td><%= age(object.data_de_nasc) %></td>
+          <td><%= object.data_posse.strftime("%d/%m/%Y") if object.data_posse %></td>
+          <td><%= age(object.data_posse) %></td>
+          <% if (age(object.data_de_nasc).to_i >= 65 || age(object.data_posse).to_i >= 35) %>
+            <td>Sim</td>
+          <% else %>
+            <td>Não</td>
+          <% end %>
           <td><%= object.status %></td>
           <td><%= link_to "Editar", edit_motorista_path(object) %></td>
           <td><%= link_to "Deletar", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
@@ -71,13 +71,15 @@
             <td><%= m.secao_atual %></td>
             <td><%= m.pontuacao %></td>
             <td><%= m.local %></td>
-          
-            <td><%= m.data_de_nasc %></td>
-            <td></td>
-            <td><%= m.data_posse %></td>
-            <td></td>
-            <td><%= m.cond_aposentadoria %></td>
-          
+            <td><%= m.data_de_nasc.strftime("%d/%m/%Y") if m.data_de_nasc %></td>
+            <td><%= age(m.data_de_nasc) %></td>
+            <td><%= m.data_posse.strftime("%d/%m/%Y") if m.data_posse %></td>
+            <td><%= age(m.data_posse) %></td>
+            <% if (age(m.data_de_nasc).to_i >= 65) || (age(m.data_posse).to_i >= 35) %>
+              <td>Sim</td>
+            <% else %>
+              <td>Não</td>
+            <% end %>
             <td><%= m.status %></td>
             <td><%= link_to "Editar", edit_motorista_path(m) %></td>
             <td><%= link_to "Deletar", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>

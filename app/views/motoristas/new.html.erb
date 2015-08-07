@@ -4,23 +4,37 @@
     <h1 style="text-align: center;">Registrar Motorista</h1>
     
     <%= form_for(@motorista) do |f| %>
-      <%= f.label :nome, "Nome" %>
+      <%= f.label :nome, "Nome", class: 'form_label' %>
       <%= f.text_field :nome, class: 'form-control formulario' %>
-      <%= f.label :rf, "RF" %>
+      
+      <%= f.label :rf, "RF", class: 'form_label' %>
       <%= f.text_field :rf, maxlength: 7, class: 'form-control formulario' %>
-      <%= f.label :cargo, "Cargo" %>
+      
+      <%= f.label :data_de_nasc, "Data de Nascimento", class: 'form_label' %>
+      <%= f.date_select(:data_de_nasc, {start_year: 1900, include_blank: true}, {class: 'form-control formulario', style: 'width: auto; display: inline;'}) %>
+      
+      <%= f.label :cargo, "Cargo", class: 'form_label' %>
       <%= f.text_field :cargo, class: 'form-control formulario' %>
-      <%= f.label :secao_original, "Seção Original"%>
-      <%= f.text_field :secao_original, class: 'form-control formulario' %>
-      <%= f.label :secao_atual, "Seção Atual"%>
-      <%= f.text_field :secao_atual, class: 'form-control formulario' %>
-      <%= f.label :pontuacao, "Pontuação" %>
+      
+      <%= f.label :data_posse, "Data do Termo de Posse", class: 'form_label' %>
+      <%= f.date_select(:data_posse, {start_year: 1900, include_blank: true}, {class: 'form-control formulario', style: 'width: auto; display: inline;'}) %>
+      
+      <%= f.label :secao_original, "Seção Original", class: 'form_label' %>
+      <%= f.select(:secao_original, @secoes, {include_blank: true}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.label :secao_atual, "Seção Atual", class: 'form_label' %>
+      <%= f.select(:secao_atual, @secoes, {include_blank: true}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.label :pontuacao, "Pontuação", class: 'form_label' %>
       <%= f.text_field :pontuacao, class: 'form-control formulario' %>
-      <%= f.label :local, "Local" %>
+      
+      <%= f.label :local, "Local", class: 'form_label' %>
       <%= f.select(:local, [["TRAF V. MARIAN."],["TRAF V. GUILH."],["Outras Áreas"],["RECORPS"],["Não Localizado"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
-      <%= f.label :status, "Status" %>
+      
+      <%= f.label :status, "Status", class: 'form_label' %>
       <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {include_blank: true}, {:class => 'form-control formulario'}) %>
-      <%= f.submit "Registrar Motorista", class: "btn btn-primary btn-block" %>
+      
+      <%= f.submit "Registrar Motorista", class: "btn btn-primary btn-block form_submit" %>
     <% end %>
     
   </div>

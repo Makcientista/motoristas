@@ -1,6 +1,8 @@
 <h1>Motoristas - Outras Áreas Filtrado</h1>
 <%= link_to "Voltar", outras_areas_path, class: "btn btn-default" %>
 <% @secoes.each do |s| %>
-  <h3><%= s.first.secao_atual %></h3>
-  <%= render 'layouts/lista', object: s %>
+  <% if !s.blank? %>
+    <h3><%= s.first.secao_atual %></h3>
+    <%= render 'layouts/lista', object: s %>
+  <% end %>
 <% end %>
