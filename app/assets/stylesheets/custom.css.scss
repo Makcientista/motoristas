@@ -32,3 +32,9 @@ body {
 .dir {
   text-align: right;
 }
+
+.field_with_errors {
+  .form-control {
+    border: solid red 1px;
+  }
+}

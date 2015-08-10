@@ -3,48 +3,11 @@ class MotoristasController < ApplicationController
   
   def new
     @motorista = Motorista.new
-    @secoes = [
-      'TRAF V. GUILH.',
-      'TRAF V. MARIAN.',
-      'RECORPS',
-      'ADM.CEMIT.',
-      'AG. FORMOSA',
-      'AG. H.S.P.M.',
-      'AG.ARACA',
-      'AG.CENTRAL',
-      'AG.Q. PARADA',
-      'ALMOX.',
-      'C.N.CACHOE.',
-      'C.SANTANA',
-      'Ch. DIV.DE TRANS.',
-      'Crematório',
-      'D. PRODUCAO',
-      'EST. URNAS CAIX',
-      'ETQ URNAS CAIX',
-      'EXP. TRAF',
-      'FISCALIZ.',
-      'FM 21',
-      'MAN. DA SEDE',
-      'MAN.A.VERDES',
-      'MANUT. DA SEDE',
-      'S. PEDRO',
-      'S. PESSOAL',
-      'S. SOC./ FM.21',
-      'VEL. S. PAULO',
-      'VELORIO ARACA',
-      'VISTORIA',
-      'Velório Santana',
-      'PROTOCOLO',
-      'CEMIT.PARELHEIROS',
-      'CEMIT.QUARTA PARADA',
-      'VELORIO ITAQUERA',
-      'Tráfego/Fax',
-      'Mot. Almox.',
-      'CONTABILIDADE'
-    ]
+    @secoes = secoes
   end
   
   def create
+    @secoes = secoes
     @motorista = Motorista.new(motorista_params)
     if @motorista.save
       redirect_to root_url
@@ -57,6 +20,7 @@ class MotoristasController < ApplicationController
     if @motorista = Motorista.find_by(rf: params[:search])
       redirect_to @motorista
     else
+      flash[:danger] = "Não foi encontrado nenhum motorista com este RF"
       redirect_to root_url
     end
   end
@@ -67,45 +31,7 @@ class MotoristasController < ApplicationController
   
   def edit
     @motorista = Motorista.find(params[:id])
-    @secoes = [
-      'TRAF V. GUILH.',
-      'TRAF V. MARIAN.',
-      'RECORPS',
-      'ADM.CEMIT.',
-      'AG. FORMOSA',
-      'AG. H.S.P.M.',
-      'AG.ARACA',
-      'AG.CENTRAL',
-      'AG.Q. PARADA',
-      'ALMOX.',
-      'C.N.CACHOE.',
-      'C.SANTANA',
-      'Ch. DIV.DE TRANS.',
-      'Crematório',
-      'D. PRODUCAO',
-      'EST. URNAS CAIX',
-      'ETQ URNAS CAIX',
-      'EXP. TRAF',
-      'FISCALIZ.',
-      'FM 21',
-      'MAN. DA SEDE',
-      'MAN.A.VERDES',
-      'MANUT. DA SEDE',
-      'S. PEDRO',
-      'S. PESSOAL',
-      'S. SOC./ FM.21',
-      'VEL. S. PAULO',
-      'VELORIO ARACA',
-      'VISTORIA',
-      'Velório Santana',
-      'PROTOCOLO',
-      'CEMIT.PARELHEIROS',
-      'CEMIT.QUARTA PARADA',
-      'VELORIO ITAQUERA',
-      'Tráfego/Fax',
-      'Mot. Almox.',
-      'CONTABILIDADE'
-    ]
+    @secoes = secoes
   end
   
   def update
