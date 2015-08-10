@@ -20,7 +20,7 @@ class MotoristasController < ApplicationController
     if @motorista = Motorista.find_by(rf: params[:search])
       redirect_to @motorista
     else
-      flash[:danger] = "Não foi encontrado nenhum motorista com este RF"
+      flash[:danger] = "Não foi encontrado nenhum motorista com este RF."
       redirect_to root_url
     end
   end
