@@ -111,7 +111,7 @@
             <td class="esq">Servidores que reúnem condições para requerer aposentadoria</td>
             <% cont = 0%>
             <%  Motorista.all.each do |m| %>
-              <% if (age(m.data_de_nasc).to_i >= 65 || age(m.data_posse).to_i >= <35>  </35>) %>
+              <% if (age(m.data_de_nasc).to_i >= 65 || age(m.data_posse).to_i >= 35) %>
                 <% cont = cont + 1 %>
               <% end %>
             <% end %>
