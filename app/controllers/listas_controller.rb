@@ -76,6 +76,10 @@ class ListasController < ApplicationController
     @motoristas = Motorista.where("status = 'Processo Administrativo de Falta'")
   end
   
+  def chapeira
+    @motoristas = Motorista.where("secao_original = ''") # precisa alterar
+  end
+  
   def outras_areas_filtrado
     @secoes = [
       @a1  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF V. GUILH.'"),

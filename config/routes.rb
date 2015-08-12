@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'relatorio'             => 'pages#relatorio'
   get 'geral_idade'           => 'listas#geral_idade'
   get 'geral_contribuicao'    => 'listas#geral_contribuicao'
+  get 'chapeira'              => 'listas#chapeira'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

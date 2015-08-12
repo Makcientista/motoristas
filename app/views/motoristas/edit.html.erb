@@ -19,7 +19,7 @@
       <%= f.label :data_posse, "Data do Termo de Posse", class: 'form_label' %>
       <%= f.date_select(:data_posse, {start_year: 1900, include_blank: true}, {class: 'form-control formulario', style: 'width: auto; display: inline;'}) %>
       
-      <%= f.label :secao_original, "Seção Original", class: 'form_label' %>
+      <%= f.label :secao_original, "Chapeira", class: 'form_label' %>
       <%= f.select(:secao_original, @secoes, {:prompt => @motorista.errors.full_messages_for(:secao_original).to_sentence}, {:class => 'form-control formulario'}) %>
       
       <%= f.label :secao_atual, "Seção Atual", class: 'form_label' %>
