@@ -2,8 +2,8 @@ module MotoristasHelper
   
   def secoes
     [
-      ["TRAF V. GUILH."],
-      ["TRAF V. MARIAN."],
+      ["TRAF. V. GUILH."],
+      ["TRAF. V. MARIAN."],
       ["RECORPS"],
       ["ADM.CEMIT."],
       ["AG. FORMOSA"],

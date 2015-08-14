@@ -3,49 +3,49 @@ class ListasController < ApplicationController
   
   def geral
     @motoristas = Motorista.all
-    @vila_mariana = Motorista.where("local = 'TRAF V. MARIAN.' AND status ='Ativo'")
-    @vila_guilherme = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'")
+    @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'")
+    @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'")
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'")
     @outras_areas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'")
-    @readaptados = Motorista.where("status ='Readaptado'")
+    @readaptados = Motorista.where("local != 'Chapeiras Diversas' AND status ='Readaptado'")
     @aposentados = Motorista.where("status = 'Aposentado'")
-    @licenca_medica = Motorista.where("status = 'Licença Médica'")
+    @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'")
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'")
-    @nao_localizados = Motorista.where("local = 'Não Localizado'")
+    @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'")
   end
   
   def geral_idade
     @motoristas = Motorista.all.order(:data_de_nasc)
-    @vila_mariana = Motorista.where("local = 'TRAF V. MARIAN.' AND status ='Ativo'").order(:data_de_nasc)
-    @vila_guilherme = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'").order(:data_de_nasc)
+    @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").order(:data_de_nasc)
+    @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").order(:data_de_nasc)
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'").order(:data_de_nasc)
     @outras_areas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'").order(:data_de_nasc)
-    @readaptados = Motorista.where("status ='Readaptado'").order(:data_de_nasc)
+    @readaptados = Motorista.where("local != 'Chapeiras Diversas' AND status ='Readaptado'").order(:data_de_nasc)
     @aposentados = Motorista.where("status = 'Aposentado'").order(:data_de_nasc)
-    @licenca_medica = Motorista.where("status = 'Licença Médica'").order(:data_de_nasc)
+    @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'").order(:data_de_nasc)
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'").order(:data_de_nasc)
-    @nao_localizados = Motorista.where("local = 'Não Localizado'").order(:data_de_nasc)
+    @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'").order(:data_de_nasc)
   end
   
   def geral_contribuicao
     @motoristas = Motorista.all.order(:data_posse)
-    @vila_mariana = Motorista.where("local = 'TRAF V. MARIAN.' AND status ='Ativo'").order(:data_posse)
-    @vila_guilherme = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'").order(:data_posse)
+    @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").order(:data_posse)
+    @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").order(:data_posse)
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'").order(:data_posse)
     @outras_areas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'").order(:data_posse)
-    @readaptados = Motorista.where("status ='Readaptado'").order(:data_posse)
+    @readaptados = Motorista.where("local != 'Chapeiras Diversas' AND status ='Readaptado'").order(:data_posse)
     @aposentados = Motorista.where("status = 'Aposentado'").order(:data_posse)
-    @licenca_medica = Motorista.where("status = 'Licença Médica'").order(:data_posse)
+    @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'").order(:data_posse)
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'").order(:data_posse)
-    @nao_localizados = Motorista.where("local = 'Não Localizado'").order(:data_posse)
+    @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'").order(:data_posse)
   end
   
   def vila_mariana
-    @motoristas = Motorista.where("local = 'TRAF V. MARIAN.' AND status ='Ativo'")
+    @motoristas = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'")
   end
   
   def vila_guilherme
-    @motoristas = Motorista.where("local = 'TRAF V. GUILH.' AND status ='Ativo'")
+    @motoristas = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'")
   end
 
   def recorps
@@ -55,13 +55,9 @@ class ListasController < ApplicationController
   def outras_areas
     @motoristas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'")
   end
-  
-  def nao_localizados
-    @motoristas = Motorista.where("local = 'Não Localizado'")
-  end
 
   def readaptados
-    @readaptados = Motorista.where("status ='Readaptado'")
+    @motoristas = Motorista.where("local != 'Chapeiras Diversas' AND status ='Readaptado'")
   end
 
   def aposentados
@@ -69,21 +65,21 @@ class ListasController < ApplicationController
   end
 
   def licenca_medica
-    @motoristas = Motorista.where("status = 'Licença Médica'")
+    @motoristas = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'")
   end
 
   def falta
     @motoristas = Motorista.where("status = 'Processo Administrativo de Falta'")
   end
   
-  def chapeira
-    @motoristas = Motorista.where("secao_original = ''") # precisa alterar
+  def chapeiras_diversas
+    @motoristas = Motorista.where("local = 'Chapeiras Diversas'")
   end
   
   def outras_areas_filtrado
     @secoes = [
-      @a1  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF V. GUILH.'"),
-      @a2  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF V. MARIAN.'"),
+      @a1  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF. V. GUILH.'"),
+      @a2  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF. V. MARIAN.'"),
       @a3  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'RECORPS'"),
       @a4  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'ADM.CEMIT.'"),
       @a5  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'AG. FORMOSA'"),

@@ -1,5 +1,5 @@
-<% if object.class == Motorista::ActiveRecord_Relation %>
-<h5>Numero de motoristas: <%= object.count %></h5>
+<% if object.class == Motorista::ActiveRecord_Relation%>
+  <h5>Numero de motoristas: <%= object.count %></h5>
 <% end %>
 <div class="tabela">
   <table class="table table-condensed table-striped">
@@ -12,22 +12,22 @@
         <th>Chapeira</th>
         <th>Seção Atual</th>
         <th>Pontuação</th>
-        <% if object.class == Motorista::ActiveRecord_Relation %>
-          <% if (object.first.local == "TRAF V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF V. MARIAN." && object.first.status == "Ativo") %>
+        <% if object.class == Motorista::ActiveRecord_Relation && object.first %>
+          <% if (object.first.local == "TRAF. V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF. V. MARIAN." && object.first.status == "Ativo") %>
             <th>Pólo</th>
           <% else %>
             <th>Local</th>
           <% end %>
-        <% else %>
-          <% if (object.local == "TRAF V. GUILH." && object.status == "Ativo") || (object.local == "TRAF V. MARIAN." && object.status == "Ativo") %>
+        <% elsif object.class == Motorista %>
+          <% if (object.local == "TRAF. V. GUILH." && object.status == "Ativo") || (object.local == "TRAF. V. MARIAN." && object.status == "Ativo") %>
             <th>Pólo</th>
           <% else %>
             <th>Local</th>
           <% end %>
         <% end %>
-        <th>Data de Nascimento</th>
+        <!--<th>Data de Nascimento</th>-->
         <th>Idade</th>
-        <th>Data do Termo de Posse</th>
+        <!--<th>Data do Termo de Posse</th>-->
         <th>Tempo de Contribuição</th>
         <th>Condições Para Aposentadoria</th>
         <th>Status</th>
@@ -47,9 +47,9 @@
           <td><%= object.secao_atual %></td>
           <td><%= object.pontuacao %></td>
           <td><%= object.local %></td>
-          <td><%= object.data_de_nasc.strftime("%d/%m/%Y") if object.data_de_nasc %></td>
+          <!--<td><%= object.data_de_nasc.strftime("%d/%m/%Y") if object.data_de_nasc %></td>-->
           <td><%= age(object.data_de_nasc) %></td>
-          <td><%= object.data_posse.strftime("%d/%m/%Y") if object.data_posse %></td>
+          <!--<td><%= object.data_posse.strftime("%d/%m/%Y") if object.data_posse %></td>-->
           <td><%= age(object.data_posse) %></td>
           <% if (age(object.data_de_nasc).to_i >= 65 || age(object.data_posse).to_i >= 35) %>
             <td>Sim</td>
@@ -60,7 +60,7 @@
           <td><%= link_to "Editar", edit_motorista_path(object) %></td>
           <td><%= link_to "Deletar", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
         </tr>
-      <% else %>
+      <% elsif object.first%>
         <% object.each do |m| %>
           <tr>
             <th><%= contador %></th>
@@ -71,9 +71,9 @@
             <td><%= m.secao_atual %></td>
             <td><%= m.pontuacao %></td>
             <td><%= m.local %></td>
-            <td><%= m.data_de_nasc.strftime("%d/%m/%Y") if m.data_de_nasc %></td>
+            <!--<td><%= m.data_de_nasc.strftime("%d/%m/%Y") if m.data_de_nasc %></td>-->
             <td><%= age(m.data_de_nasc) %></td>
-            <td><%= m.data_posse.strftime("%d/%m/%Y") if m.data_posse %></td>
+            <!--<td><%= m.data_posse.strftime("%d/%m/%Y") if m.data_posse %></td>-->
             <td><%= age(m.data_posse) %></td>
             <% if (age(m.data_de_nasc).to_i >= 65) || (age(m.data_posse).to_i >= 35) %>
               <td>Sim</td>

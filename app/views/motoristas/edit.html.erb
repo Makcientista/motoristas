@@ -29,7 +29,7 @@
       <%= f.text_field :pontuacao, class: 'form-control formulario', :placeholder => @motorista.errors.full_messages_for(:pontuacao).to_sentence %>
       
       <%= f.label :local, "Local", class: 'form_label' %>
-      <%= f.select(:local, [["TRAF V. MARIAN."],["TRAF V. GUILH."],["Outras Áreas"],["RECORPS"],["Não Localizado"]], {:prompt => @motorista.errors.full_messages_for(:local).to_sentence}, {:class => 'form-control formulario'}) %>
+      <%= f.select(:local, [["TRAF. V. MARIAN."],["TRAF. V. GUILH."],["Outras Áreas"],["RECORPS"],["Não Localizado"]], {:prompt => @motorista.errors.full_messages_for(:local).to_sentence}, {:class => 'form-control formulario'}) %>
       
       <%= f.label :status, "Status", class: 'form_label' %>
       <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>

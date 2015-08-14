@@ -30,10 +30,6 @@
             <td class="dir"><%= @readaptados %></td>
           </tr>
           <tr>
-            <td class="esq">Aposentados</td>
-            <td class="dir"><%= @aposentados %></td>
-          </tr>
-          <tr>
             <td class="esq">Licença Médica</td>
             <td class="dir"><%= @licenca_medica %></td>
           </tr>
@@ -44,6 +40,20 @@
           <tr>
             <th class="esq">Total</th>
             <th class="dir"><%= @motoristas %></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tabela">
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <td class="esq">Aposentados</td>
+            <td class="dir"><%= @aposentados %></td>
+          </tr>
+          <tr>
+            <td class="esq">Chapeiras Diversas</td>
+            <td class="dir"><%= @chapeiras_diversas%></td>
           </tr>
         </tbody>
       </table>
@@ -110,7 +120,7 @@
           <tr>
             <td class="esq">Servidores que reúnem condições para requerer aposentadoria</td>
             <% cont = 0%>
-            <%  Motorista.all.each do |m| %>
+            <%  Motorista.all.where("status != 'Aposentado'").each do |m| %>
               <% if (age(m.data_de_nasc).to_i >= 65 || age(m.data_posse).to_i >= 35) %>
                 <% cont = cont + 1 %>
               <% end %>
