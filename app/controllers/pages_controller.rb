@@ -4,6 +4,15 @@ class PagesController < ApplicationController
   def home
   end
   
+  def consultar_motoristas
+  end
+  
+  def listar_motoristas
+  end
+  
+  def buscar_motoristas
+  end
+  
   def relatorio
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").count
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").count

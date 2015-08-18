@@ -4,10 +4,12 @@ class MotoristasController < ApplicationController
   def new
     @motorista = Motorista.new
     @secoes = secoes
+    @chapeiras = chapeiras
   end
   
   def create
     @secoes = secoes
+    @chapeiras = chapeiras
     @motorista = Motorista.new(motorista_params)
     if @motorista.save
       redirect_to root_url
@@ -21,7 +23,7 @@ class MotoristasController < ApplicationController
       redirect_to @motorista
     else
       flash[:danger] = "Não foi encontrado nenhum motorista com este RF."
-      redirect_to root_url
+      redirect_to buscar_motoristas_path
     end
   end
   
@@ -32,6 +34,7 @@ class MotoristasController < ApplicationController
   def edit
     @motorista = Motorista.find(params[:id])
     @secoes = secoes
+    @chapeiras = chapeiras
   end
   
   def update

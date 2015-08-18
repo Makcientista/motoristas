@@ -1,158 +1,161 @@
-<h1 style="text-align: center; margin-bottom: 40px;">Relatório</h1>
-<div class="row" style="margin-top: 50px">
-  <div class="col-md-4 col-md-offset-4">
-    <div class="tabela">
-      <table class="table table-condensed">
-        <thead>
-          <tr>
-            <th class="esq">Número de Motoristas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="esq">Vila Mariana</td>
-            <td class="dir"><%= @vila_mariana %></td>
-          </tr>
-          <tr>
-            <td class="esq">Vila Guilherme</td>
-            <td class="dir"><%= @vila_guilherme %></td>
-          </tr>
-          <tr>
-            <td class="esq">RECORPS</td>
-            <td class="dir"><%= @recorps %></td>
-          </tr>
-          <tr>
-            <td class="esq">Outras Áreas</td>
-            <td class="dir"><%= @outras_areas %></td>
-          </tr>
-          <tr>
-            <td class="esq">Readaptados</td>
-            <td class="dir"><%= @readaptados %></td>
-          </tr>
-          <tr>
-            <td class="esq">Licença Médica</td>
-            <td class="dir"><%= @licenca_medica %></td>
-          </tr>
-          <tr>
-            <td class="esq">Processo Administrativo de Falta</td>
-            <td class="dir"><%= @falta %></td>
-          </tr>
-          <tr>
-            <th class="esq">Total</th>
-            <th class="dir"><%= @motoristas %></th>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="tabela">
-      <table class="table table-condensed">
-        <tbody>
-          <tr>
-            <td class="esq">Aposentados</td>
-            <td class="dir"><%= @aposentados %></td>
-          </tr>
-          <tr>
-            <td class="esq">Chapeiras Diversas</td>
-            <td class="dir"><%= @chapeiras_diversas%></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<div class="row" style="margin-top: 50px">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="tabela">
-      <table class="table table-condensed">
-        <thead>
-          <tr class="back">
-            <th>Descrição</th>
-            <th>Nº</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="esq">Nª de cargos previstos por Lei</th>
-            <td>450</td>
-          </tr>
-          <tr>
-            <th class="esq">Cargos vagos</th>
-            <td>-<%= 450 - @motoristas %></td>
-          </tr>
-          <tr class="back">
-            <th>Total de Cargos Preenchidos</th>
-            <th><%= @motoristas %></th>
-          </tr>
-          <tr>
-            <th class="esq">Servidores em Processo Administrativo de Falta</th>
-            <td>-<%= @falta %></td>
-          </tr>
-          <tr>
-            <th class="esq">Servidores lotados em outras áreas (Apoio ao Setor Tráfego, Suporte, Área Administrativa, Cargos Comissionados)</th>
-            <td>-<%= @outras_areas %></td>
-          </tr>
-          <tr>
-            <th class="esq">Servidores Readaptados</th>
-            <td>-<%= @readaptados %></td>
-          </tr>
-          <tr>
-            <th class="esq">Servidores prestando serviço em RECORPS</th>
-            <td>-<%= @recorps %></td>
-          </tr>
-          <tr class="back">
-            <th>Total de Motoristas Efetivos</th>
-            <th><%= @total %></th>
-          </tr>
-        </tbody>
-      </table>
+<div style="color: white; font-weight: bold">
+  <h1 style="text-align: center; margin-bottom: 40px; color: white;">Relatório</h1>
+  <div class="row" style="margin-top: 50px">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="tabela">
+        <table class="table table-condensed">
+          <thead>
+            <tr>
+              <th class="esq">Número de Motoristas</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="esq">Vila Mariana</td>
+              <td class="dir"><%= @vila_mariana %></td>
+            </tr>
+            <tr>
+              <td class="esq">Vila Guilherme</td>
+              <td class="dir"><%= @vila_guilherme %></td>
+            </tr>
+            <tr>
+              <td class="esq">RECORPS</td>
+              <td class="dir"><%= @recorps %></td>
+            </tr>
+            <tr>
+              <td class="esq">Outras Áreas</td>
+              <td class="dir"><%= @outras_areas %></td>
+            </tr>
+            <tr>
+              <td class="esq">Readaptados</td>
+              <td class="dir"><%= @readaptados %></td>
+            </tr>
+            <tr>
+              <td class="esq">Licença Médica</td>
+              <td class="dir"><%= @licenca_medica %></td>
+            </tr>
+            <tr>
+              <td class="esq">Processo Administrativo de Falta</td>
+              <td class="dir"><%= @falta %></td>
+            </tr>
+            <tr>
+              <th class="esq">Total</th>
+              <th class="dir"><%= @motoristas %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabela">
+        <table class="table table-condensed">
+          <tbody>
+            <tr>
+              <td class="esq">Aposentados</td>
+              <td class="dir"><%= @aposentados %></td>
+            </tr>
+            <tr>
+              <td class="esq">Chapeiras Diversas</td>
+              <td class="dir"><%= @chapeiras_diversas%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
-<div class="row" style="margin-top: 50px">
-  <div class="col-md-6 col-md-offset-3">
-    <div class="tabela">
-      <table class="table table-condensed">
-        <tbody>
-          <tr>
-            <th class="esq">Observação</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td class="esq">Servidores que reúnem condições para requerer aposentadoria</td>
-            <% cont = 0%>
-            <%  Motorista.all.where("status != 'Aposentado'").each do |m| %>
-              <% if (age(m.data_de_nasc).to_i >= 65 || age(m.data_posse).to_i >= 35) %>
-                <% cont = cont + 1 %>
+  <div class="row" style="margin-top: 50px">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="tabela">
+        <table class="table table-condensed">
+          <thead>
+            <tr class="back">
+              <th style="color: black;">Descrição</th>
+              <th style="color: black;">Nº</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="esq">Nª de cargos previstos por Lei</th>
+              <td>450</td>
+            </tr>
+            <tr>
+              <th class="esq">Cargos vagos</th>
+              <td>-<%= 450 - @motoristas %></td>
+            </tr>
+            <tr class="back">
+              <th style="color: black;">Total de Cargos Preenchidos</th>
+              <th style="color: black;"><%= @motoristas %></th>
+            </tr>
+            <tr>
+              <th class="esq">Servidores em Processo Administrativo de Falta</th>
+              <td>-<%= @falta %></td>
+            </tr>
+            <tr>
+              <th class="esq">Servidores lotados em outras áreas (Apoio ao Setor Tráfego, Suporte, Área Administrativa, Cargos Comissionados)</th>
+              <td>-<%= @outras_areas %></td>
+            </tr>
+            <tr>
+              <th class="esq">Servidores Readaptados</th>
+              <td>-<%= @readaptados %></td>
+            </tr>
+            <tr>
+              <th class="esq">Servidores prestando serviço em RECORPS</th>
+              <td>-<%= @recorps %></td>
+            </tr>
+            <tr class="back">
+              <th style="color: black;">Total de Motoristas Efetivos</th>
+              <th style="color: black;"><%= @total %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 50px">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="tabela">
+        <table class="table table-condensed">
+          <tbody>
+            <tr>
+              <th class="esq">Observação</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td class="esq">Servidores que reúnem condições para requerer aposentadoria</td>
+              <% cont = 0%>
+              <%  Motorista.all.where("status != 'Aposentado'").each do |m| %>
+                <% if (age(m.data_de_nasc).to_i >= 65 || age(m.data_posse).to_i >= 35) %>
+                  <% cont = cont + 1 %>
+                <% end %>
               <% end %>
-            <% end %>
-            <td class="dir"><%= cont %></td> 
-          </tr>
-          <tr>
-            <th class="esq">Distribuição do efetivo em turnos</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td class="esq">4 turnos de 12 hs X 36</td>
-            <td class="dir">28 motoristas por turno</td>
-          </tr>
-          <tr>
-            <th class="esq">Cálculo Estimado de Traslados por Turno</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td class="esq">3,5 traslados por motorista X 28 motoristas por turno</td>
-            <td class="dir">98 traslados por turno</td>
-          </tr>
-          <tr>
-            <th class="esq">Cálculo Estimativo do Tempo do Espera de Traslado</th>
-            <th></th>
-          </tr>
-          <tr>
-            <td class="esq">98 remoções por turno / 12 horas</td>
-            <td class="dir">8 horas</td>
-          </tr>
-        </tbody>
-      </table>
+              <td class="dir"><%= cont %></td> 
+            </tr>
+            <tr>
+              <th class="esq">Distribuição do efetivo em turnos</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td class="esq">4 turnos de 12 hs X 36</td>
+              <td class="dir">28 motoristas por turno</td>
+            </tr>
+            <tr>
+              <th class="esq">Cálculo Estimado de Traslados por Turno</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td class="esq">3,5 traslados por motorista X 28 motoristas por turno</td>
+              <td class="dir">98 traslados por turno</td>
+            </tr>
+            <tr>
+              <th class="esq">Cálculo Estimativo do Tempo do Espera de Traslado</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td class="esq">98 remoções por turno / 12 horas</td>
+              <td class="dir">8 horas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

@@ -1,92 +1,94 @@
-<% if object.class == Motorista::ActiveRecord_Relation%>
-  <h5>Numero de motoristas: <%= object.count %></h5>
-<% end %>
-<div class="tabela">
-  <table class="table table-condensed table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>RF</th>
-        <th>Cargo</th>
-        <th>Chapeira</th>
-        <th>Seção Atual</th>
-        <th>Pontuação</th>
-        <% if object.class == Motorista::ActiveRecord_Relation && object.first %>
-          <% if (object.first.local == "TRAF. V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF. V. MARIAN." && object.first.status == "Ativo") %>
-            <th>Pólo</th>
-          <% else %>
-            <th>Local</th>
-          <% end %>
-        <% elsif object.class == Motorista %>
-          <% if (object.local == "TRAF. V. GUILH." && object.status == "Ativo") || (object.local == "TRAF. V. MARIAN." && object.status == "Ativo") %>
-            <th>Pólo</th>
-          <% else %>
-            <th>Local</th>
-          <% end %>
-        <% end %>
-        <!--<th>Data de Nascimento</th>-->
-        <th>Idade</th>
-        <!--<th>Data do Termo de Posse</th>-->
-        <th>Tempo de Contribuição</th>
-        <th>Condições Para Aposentadoria</th>
-        <th>Status</th>
-        <th>Editar</th>
-        <th>Deletar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% contador = 1 %>
-      <% if object.class == Motorista %>
+<div class="lista-mot">
+  <% if object.class == Motorista::ActiveRecord_Relation%>
+    <h5>Numero de motoristas: <%= object.count %></h5>
+  <% end %>
+  <div class="tabela">
+    <table class="table table-condensed">
+      <thead>
         <tr>
-          <th><%= contador %></th>
-          <td><%= object.nome %></td>
-          <td><%= object.rf %></td>
-          <td><%= object.cargo %></td>
-          <td><%= object.secao_original %></td>
-          <td><%= object.secao_atual %></td>
-          <td><%= object.pontuacao %></td>
-          <td><%= object.local %></td>
-          <!--<td><%= object.data_de_nasc.strftime("%d/%m/%Y") if object.data_de_nasc %></td>-->
-          <td><%= age(object.data_de_nasc) %></td>
-          <!--<td><%= object.data_posse.strftime("%d/%m/%Y") if object.data_posse %></td>-->
-          <td><%= age(object.data_posse) %></td>
-          <% if (age(object.data_de_nasc).to_i >= 65 || age(object.data_posse).to_i >= 35) %>
-            <td>Sim</td>
-          <% else %>
-            <td>Não</td>
+          <th>#</th>
+          <th>Nome</th>
+          <th>RF</th>
+          <th>Cargo</th>
+          <th>Chapeira</th>
+          <th>Seção Atual</th>
+          <th>Pontuação</th>
+          <% if object.class == Motorista::ActiveRecord_Relation && object.first %>
+            <% if (object.first.local == "TRAF. V. GUILH." && object.first.status == "Ativo") || (object.first.local == "TRAF. V. MARIAN." && object.first.status == "Ativo") %>
+              <th>Pólo</th>
+            <% else %>
+              <th>Local</th>
+            <% end %>
+          <% elsif object.class == Motorista %>
+            <% if (object.local == "TRAF. V. GUILH." && object.status == "Ativo") || (object.local == "TRAF. V. MARIAN." && object.status == "Ativo") %>
+              <th>Pólo</th>
+            <% else %>
+              <th>Local</th>
+            <% end %>
           <% end %>
-          <td><%= object.status %></td>
-          <td><%= link_to "Editar", edit_motorista_path(object) %></td>
-          <td><%= link_to "Deletar", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
+          <!--<th>Data de Nascimento</th>-->
+          <th>Idade (anos)</th>
+          <!--<th>Data do Termo de Posse</th>-->
+          <th>Tempo de Contribuição (anos)</th>
+          <th>Condições Para Aposentadoria</th>
+          <th>Status</th>
+          <th>Editar</th>
+          <th>Deletar</th>
         </tr>
-      <% elsif object.first%>
-        <% object.each do |m| %>
+      </thead>
+      <tbody>
+        <% contador = 1 %>
+        <% if object.class == Motorista %>
           <tr>
             <th><%= contador %></th>
-            <td><%= m.nome %></td>
-            <td><%= m.rf %></td>
-            <td><%= m.cargo %></td>
-            <td><%= m.secao_original %></td>
-            <td><%= m.secao_atual %></td>
-            <td><%= m.pontuacao %></td>
-            <td><%= m.local %></td>
-            <!--<td><%= m.data_de_nasc.strftime("%d/%m/%Y") if m.data_de_nasc %></td>-->
-            <td><%= age(m.data_de_nasc) %></td>
-            <!--<td><%= m.data_posse.strftime("%d/%m/%Y") if m.data_posse %></td>-->
-            <td><%= age(m.data_posse) %></td>
-            <% if (age(m.data_de_nasc).to_i >= 65) || (age(m.data_posse).to_i >= 35) %>
+            <td><%= object.nome %></td>
+            <td><%= object.rf %></td>
+            <td><%= object.cargo %></td>
+            <td><%= object.secao_original %></td>
+            <td><%= object.secao_atual %></td>
+            <td><%= object.pontuacao %></td>
+            <td><%= object.local %></td>
+            <!--<td><%= object.data_de_nasc.strftime("%d/%m/%Y") if object.data_de_nasc %></td>-->
+            <td><%= age(object.data_de_nasc) %></td>
+            <!--<td><%= object.data_posse.strftime("%d/%m/%Y") if object.data_posse %></td>-->
+            <td><%= age(object.data_posse) %></td>
+            <% if (age(object.data_de_nasc).to_i >= 65 || age(object.data_posse).to_i >= 35) %>
               <td>Sim</td>
             <% else %>
               <td>Não</td>
             <% end %>
-            <td><%= m.status %></td>
-            <td><%= link_to "Editar", edit_motorista_path(m) %></td>
-            <td><%= link_to "Deletar", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" } %></td>
+            <td><%= object.status %></td>
+            <td><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
+            <td><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
           </tr>
-          <% contador = contador + 1 %>
+        <% elsif object.first%>
+          <% object.each do |m| %>
+            <tr>
+              <th><%= contador %></th>
+              <td><%= m.nome %></td>
+              <td><%= m.rf %></td>
+              <td><%= m.cargo %></td>
+              <td><%= m.secao_original %></td>
+              <td><%= m.secao_atual %></td>
+              <td><%= m.pontuacao %></td>
+              <td><%= m.local %></td>
+              <!--<td><%= m.data_de_nasc.strftime("%d/%m/%Y") if m.data_de_nasc %></td>-->
+              <td><%= age(m.data_de_nasc) %></td>
+              <!--<td><%= m.data_posse.strftime("%d/%m/%Y") if m.data_posse %></td>-->
+              <td><%= age(m.data_posse) %></td>
+              <% if (age(m.data_de_nasc).to_i >= 65) || (age(m.data_posse).to_i >= 35) %>
+                <td>Sim</td>
+              <% else %>
+                <td>Não</td>
+              <% end %>
+              <td><%= m.status %></td>
+              <td><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
+              <td><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
+            </tr>
+            <% contador = contador + 1 %>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>
