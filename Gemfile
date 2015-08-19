@@ -10,6 +10,7 @@ gem 'turbolinks',              '2.3.0'
 gem 'jbuilder',                '2.2.3'
 gem 'sqlite3',                 '1.3.10'
 gem 'uglifier',                '2.5.3'
+gem 'table_print'
 gem 'sdoc',                    '0.4.0', group: :doc
 
 
