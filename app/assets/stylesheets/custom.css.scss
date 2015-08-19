@@ -19,7 +19,7 @@ td, th {
 }
 
 body { 
-  padding-top: 70px;
+  // padding-top: 70px;
 }
 
 .esq {
@@ -107,5 +107,17 @@ body {
   a{
     color: white;
     text-decoration: none;
+  }
+}
+
+@media print {
+  .noPrint {
+    display: none;
+  }
+}
+
+@media screen {
+  .justPrint {
+    display: none;
   }
 }

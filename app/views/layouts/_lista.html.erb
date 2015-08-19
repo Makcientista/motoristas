@@ -32,8 +32,8 @@
           <th>Tempo de Contribuição (anos)</th>
           <th>Condições Para Aposentadoria</th>
           <th>Status</th>
-          <th>Editar</th>
-          <th>Deletar</th>
+          <th class="noPrint">Editar</th>
+          <th class="noPrint">Deletar</th>
         </tr>
       </thead>
       <tbody>
@@ -58,8 +58,8 @@
               <td>Não</td>
             <% end %>
             <td><%= object.status %></td>
-            <td><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
-            <td><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
+            <td class="noPrint"><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
+            <td class="noPrint"><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
           </tr>
         <% elsif object.first%>
           <% object.each do |m| %>
@@ -82,8 +82,8 @@
                 <td>Não</td>
               <% end %>
               <td><%= m.status %></td>
-              <td><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
-              <td><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
+              <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
+              <td class="noPrint"><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
             </tr>
             <% contador = contador + 1 %>
           <% end %>

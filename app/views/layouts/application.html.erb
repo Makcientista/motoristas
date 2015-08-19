@@ -8,8 +8,13 @@
     </head>
   <body>
     
-    <%= render 'layouts/header' %>
-    <div class = "container-fluid">
+    <div class="noPrint" style="margin-bottom: 70px"><%= render 'layouts/header' %></div>
+    
+    <% if params[:controller] == "listas" || params[:action] == "relatorio" || params[:action] == "show"%>
+      <a class="btn btn-default noPrint" style="position: absolute; right: 0px; margin-right: 10px" href="#" onclick="window.print();return false;">Imprimir Página</a>
+    <% end %>
+    
+    <div class="container-fluid">
       <%= yield %>
     </div>
 
