@@ -1,7 +1,11 @@
 class ListasController < ApplicationController
   before_action :logged_in_user
+  add_breadcrumb "Página Inicial", :root_path
+  add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
+  add_breadcrumb "Listar Motoristas", :listar_motoristas_path
   
   def geral
+    add_breadcrumb "Geral", :geral_path
     @motoristas = Motorista.all
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'")
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'")
@@ -15,6 +19,7 @@ class ListasController < ApplicationController
   end
   
   def geral_idade
+    add_breadcrumb "Geral Ordenado por Idade", :geral_idade_path
     @motoristas = Motorista.all.order(:data_de_nasc)
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").order(:data_de_nasc)
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").order(:data_de_nasc)
@@ -28,6 +33,7 @@ class ListasController < ApplicationController
   end
   
   def geral_contribuicao
+    add_breadcrumb "Geral Ordenado por Tempo de Contribuição", :geral_contribuicao_path
     @motoristas = Motorista.all.order(:data_posse)
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").order(:data_posse)
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").order(:data_posse)
@@ -41,42 +47,52 @@ class ListasController < ApplicationController
   end
   
   def vila_mariana
+    add_breadcrumb "Vila Mariana", :vila_mariana_path
     @motoristas = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'")
   end
   
   def vila_guilherme
+    add_breadcrumb "Vila Guilherme", :vila_guilherme_path
     @motoristas = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'")
   end
 
   def recorps
+    add_breadcrumb "Recorps", :recorps_path
     @motoristas = Motorista.where("local = 'RECORPS' AND status ='Ativo'")
   end
 
   def outras_areas
+    add_breadcrumb "Outras Áreas", :outras_areas_path
     @motoristas = Motorista.where("local = 'Outras Áreas' AND status ='Ativo'")
   end
 
   def readaptados
+    add_breadcrumb "Readaptados", :readaptados_path
     @motoristas = Motorista.where("local != 'Chapeiras Diversas' AND status ='Readaptado'")
   end
 
   def aposentados
+    add_breadcrumb "Aposentados", :aposentados_path
     @motoristas = Motorista.where("status = 'Aposentado'")
   end
 
   def licenca_medica
+    add_breadcrumb "Licença Médica", :licenca_medica_path
     @motoristas = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'")
   end
 
   def falta
+    add_breadcrumb "Processo Administrativo de Falta", :falta_path
     @motoristas = Motorista.where("status = 'Processo Administrativo de Falta'")
   end
   
   def chapeiras_diversas
+    add_breadcrumb "Chapeiras Diversas", :chapeiras_diversas_path
     @motoristas = Motorista.where("local = 'Chapeiras Diversas'")
   end
   
   def outras_areas_filtrado
+    add_breadcrumb "Outras Áreas Filtrado", :outras_areas_filtrado_path
     @secoes = [
       @a1  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF. V. GUILH.'"),
       @a2  = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'TRAF. V. MARIAN.'"),

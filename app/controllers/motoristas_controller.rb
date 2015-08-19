@@ -1,7 +1,10 @@
 class MotoristasController < ApplicationController
   before_action :logged_in_user
+  add_breadcrumb "Página Inicial", :root_path
+  add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
   
   def new
+    add_breadcrumb "Cadastrar Motorista", :new_motorista_path
     @motorista = Motorista.new
     @secoes = secoes
     @chapeiras = chapeiras
@@ -28,11 +31,14 @@ class MotoristasController < ApplicationController
   end
   
   def show
+    add_breadcrumb "Buscar Motoristas", :buscar_motoristas_path
     @motorista = Motorista.find(params[:id])
+    add_breadcrumb "Motorista", :motorista_path
   end
   
   def edit
     @motorista = Motorista.find(params[:id])
+    add_breadcrumb "Editar Motorista", :edit_motorista_path
     @secoes = secoes
     @chapeiras = chapeiras
   end

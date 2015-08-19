@@ -1,19 +1,26 @@
 class PagesController < ApplicationController
   before_action :logged_in_user
+  add_breadcrumb "Página Inicial", :root_path
   
   def home
   end
   
   def consultar_motoristas
+    add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
   end
   
   def listar_motoristas
+    add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
+    add_breadcrumb "Listar Motoristas", :listar_motoristas_path
   end
   
   def buscar_motoristas
+    add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
+    add_breadcrumb "Buscar Motoristas", :buscar_motoristas_path
   end
   
   def relatorio
+    add_breadcrumb "Relatório", :relatorio_path
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").count
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").count
     @recorps = Motorista.where("local = 'RECORPS' AND status ='Ativo'").count
