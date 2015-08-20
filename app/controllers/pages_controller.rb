@@ -31,7 +31,7 @@ class PagesController < ApplicationController
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'").count
     @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'").count
     @motoristas = Motorista.all.count - @chapeiras_diversas - @aposentados
-    @total = @motoristas - @falta - @outras_areas - @readaptados - @recorps
+    @total = @motoristas - @falta - @outras_areas - @readaptados - @recorps - @licenca_medica
   end
   
   private
