@@ -10,6 +10,18 @@
     
     <div class="noPrint" style="margin-bottom: 70px"><%= render 'layouts/header' %></div>
     
+    <% if !flash.empty? %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>" style="text-align: center;"><%= message %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
     <div class="noPrint">
       <% if logged_in? %>
         <ol class="breadcrumb" style="color: black">

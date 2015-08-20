@@ -1,4 +1,4 @@
-User.create(rf: '1234567', password: '123456')
+User.create(rf: '1234567', password: '1234567')
 
 Motorista.create(nome:'ADEMIR RAMOS GUEDES', rf:'32802', cargo:'AG. APOIO N-I CAT.5', secao_original: '17', secao_atual:'TRAF. V. GUILH.',data_de_nasc: '28/01/1958', data_posse: '13/02/1992',pontuacao:'',local:'TRAF. V. GUILH.',status:'Ativo')
 Motorista.create(nome:'ADILSON BENEDITO C.CACILDO', rf:'33432', cargo:'ENC.S.I/TAPEC.AUTOS', secao_original: '17', secao_atual:'TRAF V. GUILH',data_de_nasc: '07/06/1963', data_posse: '25/04/1994',pontuacao:'',local:'TRAF. V. GUILH.',status:'Ativo')

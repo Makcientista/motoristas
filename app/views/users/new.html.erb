@@ -1,0 +1,21 @@
+<div class="row form-text">
+  <div class="col-md-4 col-md-offset-4">
+    
+    <h1 style="text-align: center;">Cadastrar Usuário</h1>
+    
+    <%= form_for(@user) do |f| %>
+      
+      <%= f.label :rf, "RF", class: 'form_label' %>
+      <%= f.text_field :rf, maxlength: 7, class: 'form-control formulario', :placeholder => @user.errors.full_messages_for(:rf).to_sentence %>
+
+      <%= f.label :password, "Senha", class: 'form_label' %>
+      <%= f.password_field :password, class: 'form-control formulario', :placeholder => @user.errors.full_messages_for(:password).to_sentence %>
+
+      <%= f.label :password_confirmation, "Confirme sua senha" %>
+      <%= f.password_field :password_confirmation, class: 'form-control formulario', :placeholder => @user.errors.full_messages_for(:password_confirmation).to_sentence %>
+      
+      <%= f.submit "Cadastrar Usuário", class: "btn btn-primary btn-block form_submit" %>
+    <% end %>
+    
+  </div>
+</div>

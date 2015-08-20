@@ -1,7 +1,7 @@
 class Motorista < ActiveRecord::Base
   
- # validates :nome, presence: true
- # validates :rf, presence: true
+ validates :nome, presence: true
+ validates :rf, presence: true
  # # validates :data_de_nasc, presence: true
  # validates :cargo, presence: true
  # # validates :data_posse
