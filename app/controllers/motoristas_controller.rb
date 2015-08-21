@@ -46,7 +46,7 @@ class MotoristasController < ApplicationController
   def update
     @motorista = Motorista.find(params[:id])
     if @motorista.update_attributes(motorista_params)
-      redirect_to root_url
+      redirect_to listar_motoristas_path
     else
       render 'edit'
     end
@@ -54,7 +54,7 @@ class MotoristasController < ApplicationController
   
   def destroy
     Motorista.find(params[:id]).destroy
-    redirect_to root_url
+    redirect_to listar_motoristas_path
   end
   
   private

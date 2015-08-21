@@ -34,7 +34,7 @@
       <%= f.label :status, "Status", class: 'form_label' %>
       <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
       
-      <%= f.submit "Registrar Motorista", class: "btn btn-primary btn-block form_submit" %>
+      <%= f.submit "Salvar Mudanças", class: "btn btn-primary btn-block form_submit" %>
     <% end %>
     
   </div>
