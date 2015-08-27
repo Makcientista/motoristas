@@ -32,8 +32,10 @@
           <th>Tempo de Contribuição (anos)</th>
           <th>Condições Para Aposentadoria</th>
           <th>Status</th>
-          <th class="noPrint">Editar</th>
-          <th class="noPrint">Deletar</th>
+            <th class="noPrint">Editar</th>
+          <% if current_user.tipo == 'Administrador' %>
+            <th class="noPrint">Deletar</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -58,8 +60,10 @@
               <td>Não</td>
             <% end %>
             <td><%= object.status %></td>
-            <td class="noPrint"><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
-            <td class="noPrint"><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
+              <td class="noPrint"><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
+            <% if current_user.tipo == 'Administrador' %>
+              <td class="noPrint"><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
+            <% end %>
           </tr>
         <% elsif object.first%>
           <% object.each do |m| %>
@@ -82,8 +86,10 @@
                 <td>Não</td>
               <% end %>
               <td><%= m.status %></td>
-              <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
-              <td class="noPrint"><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
+                <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
+              <% if current_user.tipo == 'Administrador' %>
+                <td class="noPrint"><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
+              <% end %>
             </tr>
             <% contador = contador + 1 %>
           <% end %>

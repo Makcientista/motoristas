@@ -3,7 +3,10 @@
     <% if logged_in? %>
       <ul class="nav navbar-nav navbar-left">
         <li style="font-weight: bold;">
-          <%= link_to "PÁGINA INICIAL", root_url, :style => "color: white;" %>
+          <%= link_to "S I K O N", root_url, :style => "color: white;" %>
+        </li>
+        <li style="color: #999; margin-left: 40px;">
+          <%= current_user.nome %> - <%= current_user.tipo %>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

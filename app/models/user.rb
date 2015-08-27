@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  validates :rf, presence: true 
+  validates :nome, presence: true
+  validates :rf, presence: true
+  validates :tipo, presence: true
   has_secure_password
  
 end

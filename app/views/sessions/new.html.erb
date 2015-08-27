@@ -3,7 +3,7 @@
     
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.label :rf, "RF" %>
-      <%= f.text_field :rf, class: 'form-control formulario' %>
+      <%= f.text_field :rf, maxlength: 7, class: 'form-control formulario' %>
       <%= f.label :password, "Senha" %>
       <%= f.password_field :password, class: 'form-control formulario' %>
       <%= f.submit "Log in", class: "btn btn-primary btn-block" %>

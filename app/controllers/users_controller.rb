@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :eh_admin
   add_breadcrumb "Página Inicial", :root_path
   add_breadcrumb "Cadastrar Usuário", :signup_path
 
@@ -20,10 +19,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:rf, :password, :password_confirmation)
-    end
-    
-    def eh_admin
-      redirect_to root_url unless current_user.rf == '28041'
+      params.require(:user).permit(:rf, :password, :password_confirmation, :nome, :tipo)
     end
 end

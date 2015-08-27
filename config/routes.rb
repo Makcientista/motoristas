@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get    'signup'  => 'users#new'
+  get    'edit_servico_social' => 'motoristas#edit_servico_social'
   resources :motoristas
   resources :users
   

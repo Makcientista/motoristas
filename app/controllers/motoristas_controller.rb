@@ -1,5 +1,6 @@
 class MotoristasController < ApplicationController
   before_action :logged_in_user
+  before_action :eh_admin,  only: [:destroy] 
   add_breadcrumb "Página Inicial", :root_path
   add_breadcrumb "Consultar Motoristas", :consultar_motoristas_path
   
@@ -37,10 +38,16 @@ class MotoristasController < ApplicationController
   end
   
   def edit
+    redirect_to :controller => 'motoristas', :action => 'edit_servico_social', :id => params[:id] if current_user.tipo == 'Serviço Social' && params[:id]
     @motorista = Motorista.find(params[:id])
     add_breadcrumb "Editar Motorista", :edit_motorista_path
     @secoes = secoes
     @chapeiras = chapeiras
+  end
+  
+  def edit_servico_social
+    @motorista = Motorista.find(params[:id])
+    add_breadcrumb "Editar Motorista - Serviço Social", :edit_servico_social_path
   end
   
   def update
@@ -63,11 +70,5 @@ class MotoristasController < ApplicationController
       params.require(:motorista).permit(:nome, :rf, :cargo, :secao_original, 
                                         :secao_atual, :pontuacao, :local, :status,
                                         :data_de_nasc, :data_posse)
-    end
-  
-    def logged_in_user
-      unless logged_in?
-        redirect_to login_path
-      end
     end
 end

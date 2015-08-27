@@ -33,12 +33,4 @@ class PagesController < ApplicationController
     @motoristas = Motorista.all.count - @chapeiras_diversas - @aposentados
     @total = @motoristas - @falta - @outras_areas - @readaptados - @recorps - @licenca_medica
   end
-  
-  private
-  
-    def logged_in_user
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
 end

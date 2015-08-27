@@ -133,12 +133,4 @@ class ListasController < ApplicationController
       @a37 = Motorista.where("local = 'Outras Áreas' AND status ='Ativo' AND secao_atual = 'CONTABILIDADE'")
     ]
   end
-  
-  private
-  
-    def logged_in_user
-      unless logged_in?
-        redirect_to login_path
-      end
-    end
 end
