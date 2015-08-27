@@ -32,7 +32,24 @@
           <th>Tempo de Contribuição (anos)</th>
           <th>Condições Para Aposentadoria</th>
           <th>Status</th>
-            <th class="noPrint">Editar</th>
+          <% if object.class == Motorista::ActiveRecord_Relation && object.first %>
+            <!--<th class="noPrint">Editar</th>-->
+             <% if object.first.status == 'Licença Médica' || object.first.status == 'Readaptado' %>
+               <% if current_user.tipo == 'Administrador' || current_user.tipo == 'Serviço Social' %>
+                 <th class="noPrint">Editar</th>
+                <% end %>
+            <% else %>
+              <th class="noPrint">Editar</th>
+            <% end %>
+          <% elsif object.class == Motorista %>
+            <% if object.status == 'Licença Médica' || object.status == 'Readaptado' %>
+              <% if current_user.tipo == 'Administrador' || current_user.tipo == 'Serviço Social' %>
+                <th class="noPrint">Editar</th>
+              <% end %>
+            <% else %>
+              <th class="noPrint">Editar</th>
+            <% end %>
+          <% end %>
           <% if current_user.tipo == 'Administrador' %>
             <th class="noPrint">Deletar</th>
           <% end %>
@@ -60,7 +77,13 @@
               <td>Não</td>
             <% end %>
             <td><%= object.status %></td>
+            <% if object.status == 'Licença Médica' || object.status == 'Readaptado' %>
+              <% if current_user.tipo == 'Administrador' || current_user.tipo == 'Serviço Social' %>
+                <td class="noPrint"><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
+              <% end %>
+            <% else %>
               <td class="noPrint"><%= link_to "", edit_motorista_path(object), class: "glyphicon glyphicon-pencil" %></td>
+            <% end %>
             <% if current_user.tipo == 'Administrador' %>
               <td class="noPrint"><%= link_to "", object, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?"}, class: "glyphicon glyphicon-trash" %></td>
             <% end %>
@@ -86,7 +109,13 @@
                 <td>Não</td>
               <% end %>
               <td><%= m.status %></td>
-                <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil"  %></td>
+              <% if m.status == 'Licença Médica' || m.status == 'Readaptado' %>
+                <% if current_user.tipo == 'Administrador' || current_user.tipo == 'Serviço Social' %>
+                  <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil" %></td>
+                <% end %>
+              <% else %>
+                <td class="noPrint"><%= link_to "", edit_motorista_path(m), class: "glyphicon glyphicon-pencil" %></td>
+              <% end %>
               <% if current_user.tipo == 'Administrador' %>
                 <td class="noPrint"><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
               <% end %>

@@ -38,7 +38,8 @@ class MotoristasController < ApplicationController
   end
   
   def edit
-    redirect_to :controller => 'motoristas', :action => 'edit_servico_social', :id => params[:id] if current_user.tipo == 'Serviço Social' && params[:id]
+    redirect_to :controller => 'motoristas', :action => 'edit_servico_social', :id => params[:id] if current_user.tipo == 'Serviço Social'
+    redirect_to :controller => 'motoristas', :action => 'edit_trafego', :id => params[:id] if current_user.tipo == 'Tráfego'
     @motorista = Motorista.find(params[:id])
     add_breadcrumb "Editar Motorista", :edit_motorista_path
     @secoes = secoes
@@ -48,6 +49,11 @@ class MotoristasController < ApplicationController
   def edit_servico_social
     @motorista = Motorista.find(params[:id])
     add_breadcrumb "Editar Motorista - Serviço Social", :edit_servico_social_path
+  end
+  
+  def edit_trafego
+    @motorista = Motorista.find(params[:id])
+    add_breadcrumb "Editar Motorista - Tráfego", :edit_trafego_path
   end
   
   def update

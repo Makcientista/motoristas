@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    
+    <h1 style="text-align: center;">Editar Motorista</h1>
+    <h2 style="text-align: center;">Tráfego</h2>
+    <h4 style="margin-top: 40px;"><%= @motorista.nome %></h4>
+    <h4 style="margin-bottom: 25px;">RF: <%= @motorista.rf %></h4>
+    
+    <%= form_for(@motorista) do |f| %>
+
+      <%= f.label :cargo, "Cargo", class: 'form_label' %>
+      <%= f.text_field :cargo, class: 'form-control formulario', :placeholder => @motorista.errors.full_messages_for(:cargo).to_sentence %>
+      
+      <%= f.label :secao_original, "Chapeira", class: 'form_label' %>
+      <%= f.select(:secao_original, chapeiras, {:prompt => @motorista.errors.full_messages_for(:secao_original).to_sentence}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.label :secao_atual, "Seção Atual", class: 'form_label' %>
+      <%= f.select(:secao_atual, secoes, {:prompt => @motorista.errors.full_messages_for(:secao_atual).to_sentence}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.label :pontuacao, "Pontuação", class: 'form_label' %>
+      <%= f.text_field :pontuacao, class: 'form-control formulario', :placeholder => @motorista.errors.full_messages_for(:pontuacao).to_sentence %>
+      
+      <%= f.label :local, "Local", class: 'form_label' %>
+      <%= f.select(:local, [["TRAF. V. MARIAN."],["TRAF. V. GUILH."],["Outras Áreas"],["RECORPS"],["Chapeiras Diversas"]], {:prompt => @motorista.errors.full_messages_for(:local).to_sentence}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.label :status, "Status", class: 'form_label' %>
+      <%= f.select(:status, [["Ativo"],["Processo Administrativo de Falta"],["Aposentado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
+      
+      <%= f.submit "Salvar Mudanças", class: "btn btn-primary btn-block form_submit" %>
+    <% end %>
+    
+  </div>
+</div>
