@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get    'edit_servico_social'   => 'motoristas#edit_servico_social'
   get    'edit_trafego'          => 'motoristas#edit_trafego'
   get    'registro'              => 'pages#registro'
+  get    'relatorio_log'         => 'pages#relatorio_log'
   resources :motoristas
   resources :users
   

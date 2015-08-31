@@ -39,4 +39,7 @@ class PagesController < ApplicationController
     @registros = Registro.all
   end
   
+  def relatorio_log
+    add_breadcrumb "Relatórios / Log", :relatorio_log_path
+  end
 end
