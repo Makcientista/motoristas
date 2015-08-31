@@ -1,21 +1,15 @@
+<div class="justPrint" style="text-align: center;"><%= image_tag("LogoPrefeitura.jpg", alt: "Prefeitura de São Paulo") %></div>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1 style="text-align: center;">Registro de Alterações</h1>
+      <h1 style="text-align: center; margin-bottom: 25px;">Registro de Alterações</h1>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
-  <% @registros.each do |r| %>
-    Alteração realizada por <%= r.user %> em <%= r.created_at.strftime("%d/%m/%Y") %>
     <div class="tabela">
       <table class="table table-condenseded">
         <thead>
           <tr>
+            <th></th>
             <th>Nome</th>
             <th>RF</th>
             <th>Cargo</th>
@@ -29,13 +23,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>bla</th>
-          </tr>
+          <% @registros.each do |r| %>
+            <% if r.id.odd? %>
+              <tr>
+                <td height=50 colspan=11 class="titulo-registro" style="vertical-align: middle;">
+                  Alteração Realizada por <%= r.user %> em <%= r.created_at.strftime("%d/%m/%Y") %>
+                </td>
+              </tr>
+            <% end %>
+            <tr>
+              <th><%= r.momento %></th>
+              <td><%= r.nome %></td>
+              <td><%= r.rf %></td>
+              <td><%= r.cargo %></td>
+              <td><%= r.secao_original %></td>
+              <td><%= r.secao_atual %></td>
+              <td><%= r.pontuacao %></td>
+              <td><%= r.local %></td>
+              <td><%= r.data_de_nasc %></td>
+              <td><%= r.data_posse %></td>
+              <td><%= r.status %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
-  <% end %>
   
   
   
