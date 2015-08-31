@@ -58,7 +58,9 @@ class MotoristasController < ApplicationController
   
   def update
     @motorista = Motorista.find(params[:id])
+    Registro.create(params_antes(@motorista))
     if @motorista.update_attributes(motorista_params)
+      Registro.create(params_depois(@motorista))
       redirect_to listar_motoristas_path
     else
       render 'edit'
@@ -76,5 +78,23 @@ class MotoristasController < ApplicationController
       params.require(:motorista).permit(:nome, :rf, :cargo, :secao_original, 
                                         :secao_atual, :pontuacao, :local, :status,
                                         :data_de_nasc, :data_posse)
+    end
+    
+    def params_antes(m)
+      {
+        nome: m.nome, rf: m.rf, cargo: m.cargo, 
+        secao_original: m.secao_original, secao_atual: m.secao_atual,
+        pontuacao: m.pontuacao, status: m.status, local: m.local,
+        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Antes', user: "#{current_user.nome} - #{current_user.tipo}"
+      }
+    end
+    
+    def params_depois(m)
+      {
+        nome: m.nome, rf: m.rf, cargo: m.cargo, 
+        secao_original: m.secao_original, secao_atual: m.secao_atual,
+        pontuacao: m.pontuacao, status: m.status, local: m.local,
+        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Depois', user: "#{current_user.nome} - #{current_user.tipo}"
+      }
     end
 end

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="text-align: center;">Registro de Alterações</h1>
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  <% @registros.each do |r| %>
+    Alteração realizada por <%= r.user %> em <%= r.created_at.strftime("%d/%m/%Y") %>
+    <div class="tabela">
+      <table class="table table-condenseded">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>RF</th>
+            <th>Cargo</th>
+            <th>Chapeira</th>
+            <th>Seção Atual</th>
+            <th>Pontuação</th>
+            <th>Local</th>
+            <th>Data de Nascimento</th>
+            <th>Data de Admissão</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>bla</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>

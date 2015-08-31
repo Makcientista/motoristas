@@ -33,4 +33,10 @@ class PagesController < ApplicationController
     @motoristas = Motorista.all.count - @chapeiras_diversas - @aposentados
     @total = @motoristas - @falta - @outras_areas - @readaptados - @recorps - @licenca_medica
   end
+  
+  def registro
+    add_breadcrumb "Registro", :registro_path
+    @registros = Registro.all
+  end
+  
 end

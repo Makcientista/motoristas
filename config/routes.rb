@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   delete 'logout'                => 'sessions#destroy'
   get    'signup'                => 'users#new'
   get    'edit_servico_social'   => 'motoristas#edit_servico_social'
-  get    'edit_trafego'         => 'motoristas#edit_trafego'
+  get    'edit_trafego'          => 'motoristas#edit_trafego'
+  get    'registro'              => 'pages#registro'
   resources :motoristas
   resources :users
   
