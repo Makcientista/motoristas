@@ -1,7 +1,7 @@
 <div class="justPrint" style="text-align: center;"><%= image_tag("LogoPrefeitura.jpg", alt: "Prefeitura de São Paulo") %></div>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6 col-md-offset-3">
       <h1 style="text-align: center; margin-bottom: 25px;">Log de Alterações</h1>
     </div>
   </div>
@@ -26,7 +26,7 @@
           <% @registros.each do |r| %>
             <% if r.id.odd? %>
               <tr>
-                <td height=50 colspan=11 class="titulo-registro" style="vertical-align: middle;">
+                <td height=100 colspan=11 class="titulo-registro" style="vertical-align: bottom;">
                   Alteração Realizada por <%= r.user %> em <%= r.created_at.strftime("%d/%m/%Y") %>
                 </td>
               </tr>
