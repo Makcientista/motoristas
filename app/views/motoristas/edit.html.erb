@@ -32,7 +32,7 @@
       <%= f.select(:local, [["TRAF. V. MARIAN."],["TRAF. V. GUILH."],["Outras Áreas"],["RECORPS"],["Chapeiras Diversas"]], {:prompt => @motorista.errors.full_messages_for(:local).to_sentence}, {:class => 'form-control formulario'}) %>
       
       <%= f.label :status, "Status", class: 'form_label' %>
-      <%= f.select(:status, [["Ativo"],["Licença Médica"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
+      <%= f.select(:status, [["Ativo"],["Licença Médica"],["Licença Médica - Prévia"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
       
       <%= f.submit "Salvar Mudanças", class: "btn btn-primary btn-block form_submit" %>
     <% end %>

@@ -16,6 +16,7 @@ class ListasController < ApplicationController
     @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'")
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'")
     @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'")
+    @licenca_medica_previa = Motorista.where("status = 'Licença Médica - Prévia'")
   end
   
   def geral_idade
@@ -30,6 +31,7 @@ class ListasController < ApplicationController
     @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'").order(:data_de_nasc)
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'").order(:data_de_nasc)
     @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'").order(:data_de_nasc)
+    @licenca_medica_previa = Motorista.where("status = 'Licença Médica - Prévia'").order(:data_de_nasc)
   end
   
   def geral_contribuicao
@@ -44,6 +46,7 @@ class ListasController < ApplicationController
     @licenca_medica = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'").order(:data_posse)
     @falta = Motorista.where("status = 'Processo Administrativo de Falta'").order(:data_posse)
     @chapeiras_diversas = Motorista.where("local = 'Chapeiras Diversas'").order(:data_posse)
+    @licenca_medica_previa = Motorista.where("status = 'Licença Médica - Prévia'").order(:data_posse)
   end
   
   def vila_mariana
@@ -77,6 +80,7 @@ class ListasController < ApplicationController
   end
 
   def licenca_medica
+    add_breadcrumb "Licença Médica - Índice", :licenca_medica_indice_path
     add_breadcrumb "Licença Médica", :licenca_medica_path
     @motoristas = Motorista.where("local != 'Chapeiras Diversas' AND status = 'Licença Médica'")
   end
@@ -89,6 +93,12 @@ class ListasController < ApplicationController
   def chapeiras_diversas
     add_breadcrumb "Chapeiras Diversas", :chapeiras_diversas_path
     @motoristas = Motorista.where("local = 'Chapeiras Diversas'")
+  end
+  
+  def licenca_medica_previa
+    add_breadcrumb "Licença Médica - Índice", :licenca_medica_indice_path
+    add_breadcrumb "Licença Médica - Prévia", :licenca_medica_previa_path
+    @motoristas = Motorista.where("status = 'Licença Médica - Prévia'")
   end
   
   def outras_areas_filtrado

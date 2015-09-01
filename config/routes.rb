@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get    'edit_trafego'          => 'motoristas#edit_trafego'
   get    'registro'              => 'pages#registro'
   get    'relatorio_log'         => 'pages#relatorio_log'
+  get    'licenca_medica_previa' => 'listas#licenca_medica_previa'
+  get    'licenca_medica_indice' => 'pages#licenca_medica_indice'
   resources :motoristas
   resources :users
   

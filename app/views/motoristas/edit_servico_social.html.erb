@@ -10,9 +10,9 @@
 
       <%= f.label :status, "Status", class: 'form_label' %>
       <% if @motorista.status == 'Licença Médica' %>
-        <%= f.select(:status, [["Licença Médica"],["Ativo"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
+        <%= f.select(:status, [["Licença Médica"],["Licença Médica - Prévia"],["Ativo"],["Processo Administrativo de Falta"],["Aposentado"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
       <% elsif @motorista.status == 'Readaptado' %>
-        <%= f.select(:status, [["Ativo"],["Processo Administrativo de Falta"],["Aposentado"],["Licença Médica"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
+        <%= f.select(:status, [["Ativo"],["Processo Administrativo de Falta"],["Aposentado"],["Licença Médica"],["Licença Médica - Prévia"],["Readaptado"]], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
       <% else %>
         <%= f.select(:status, [@motorista.status, "Readaptado", "Licença Médica"], {:prompt => @motorista.errors.full_messages_for(:status).to_sentence}, {:class => 'form-control formulario'}) %>
       <% end %>
