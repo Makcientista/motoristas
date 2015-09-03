@@ -5,6 +5,10 @@ pt-BR:
         rf: "RF"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
+      multa:
+        picture: ""
+      atestado:
+        picture: ""
   date:
     abbr_day_names:
     - Dom

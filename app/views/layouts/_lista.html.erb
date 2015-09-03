@@ -53,6 +53,9 @@
           <% if current_user.tipo == 'Administrador' %>
             <th class="noPrint">Deletar</th>
           <% end %>
+          <% if object.class == Motorista::ActiveRecord_Relation %>
+            <th class="noPrint">Documentos</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -119,6 +122,7 @@
               <% if current_user.tipo == 'Administrador' %>
                 <td class="noPrint"><%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar este motorista?" }, class: "glyphicon glyphicon-trash" %></td>
               <% end %>
+              <td class="noPrint"><%= link_to "", m, class: "glyphicon glyphicon-list-alt" %></td>
             </tr>
             <% contador = contador + 1 %>
           <% end %>

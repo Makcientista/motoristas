@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828200344) do
+ActiveRecord::Schema.define(version: 20150902180335) do
+
+  create_table "atestados", force: :cascade do |t|
+    t.integer  "motorista_id"
+    t.string   "picture"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "atestados", ["motorista_id"], name: "index_atestados_on_motorista_id"
 
   create_table "motoristas", force: :cascade do |t|
     t.string   "nome"
@@ -27,6 +36,15 @@ ActiveRecord::Schema.define(version: 20150828200344) do
     t.date     "data_de_nasc"
     t.date     "data_posse"
   end
+
+  create_table "multas", force: :cascade do |t|
+    t.integer  "motorista_id"
+    t.string   "picture"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "multas", ["motorista_id"], name: "index_multas_on_motorista_id"
 
   create_table "registros", force: :cascade do |t|
     t.string   "nome"

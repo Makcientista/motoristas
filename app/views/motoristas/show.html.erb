@@ -1,5 +1,149 @@
-<%= render 'layouts/search' %>
+<div class="justPrint" style="text-align: center;"><%= image_tag("LogoPrefeitura.jpg", alt: "Prefeitura de São Paulo") %></div>
+<div class="noPrint"><%= render 'layouts/search' %></div>
 <h1 style="margin-bottom: 20px">
   <%= @motorista.nome %>
 </h1>
+
 <%= render 'layouts/lista', object: @motorista %>
+
+<div class="row" style="margin-top: 30px;">
+  <div class="noPrint col-md-4">
+    <div class="col-md-6">
+      <% if current_user.tipo == "Serviço Social" || current_user.tipo == "Administrador" %>
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#atestadoModal">
+          Enviar novo Atestado
+        </button>
+      <% end %>
+    </div>
+    <% if ((current_user.tipo == "Tráfego") || (current_user.tipo == "Administrador")) %>
+      <div class="col-md-6">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#multaModal">
+          Enviar nova Multa
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="noPrint col-md-4">
+    <div class="col-md-6">
+      <% if @motorista.atestados.any? %>
+        <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#listaAtestadosModal">
+          Exibir Atestados
+        </button>
+      <% end %>
+    </div>
+    <% if current_user.tipo == "Tráfego" || current_user.tipo == "Administrador" %>
+      <div class="col-md-6">
+        <% if @motorista.multas.any? %>
+          <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#listaMultaModal">
+            Exibir Multas
+          </button>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- Modal Enviar Atestado -->
+<div class="modal-show">
+  <div class="modal fade" id="atestadoModal" tabindex="-1" role="dialog" aria-labelledby="atestadoLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="atestadoLabel">Enviar Atestado</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @atestado, html: { multipart: true } do |f| %>
+            <span style="font-weight: bold;">Selecione o arquivo da imagem (tamanho máximo: 1MB).</span><br><br>
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'formulario' %>
+            <%= hidden_field_tag :id, @motorista.id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <%= f.submit "Enviar", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Enviar Multa -->
+<div class="modal-show">
+  <div class="modal fade" id="multaModal" tabindex="-1" role="dialog" aria-labelledby="multaLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="multaLabel">Enviar Multa</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for @multa, html: { multipart: true } do |f| %>
+            <span style="font-weight: bold;">Selecione o arquivo da imagem (tamanho máximo: 1MB).</span><br><br>
+            <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'formulario' %>
+            <%= hidden_field_tag :id, @motorista.id %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <%= f.submit "Enviar", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Listar Atestados-->
+<div class="modal-show">
+  <div class="modal fade" id="listaAtestadosModal" tabindex="-1" role="dialog" aria-labelledby="listaAtestadoLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="listaAtestadoLabel">Clique para exibir o atestado</h4>
+        </div>
+        <div class="modal-body">
+          <% @motorista.atestados.each do |a| %>
+            <%= link_to "Atestado enviado em #{a.created_at.strftime("%d/%m/%Y")}", a.picture.url, :target => '_blank', class: "btn btn-default", style:"margin: 5px;" %>
+            <% if current_user.tipo == "Administrador" %>
+              <%= link_to "", a, method: :delete, data: { confirm: "Tem certeza que deseja deletar este atestado?" }, class: "glyphicon glyphicon-trash btn btn-default", style:"margin: 5px 5px 5px 0px; position: static" %>
+            <% end %>
+            <br>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Listar Multas -->
+<div class="modal-show">
+  <div class="modal fade" id="listaMultaModal" tabindex="-1" role="dialog" aria-labelledby="listaMultaLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="listaMultaLabel">Clique para exibir a multa</h4>
+        </div>
+        <div class="modal-body">
+          <% @motorista.multas.each do |m| %>
+            <%= link_to "Multa enviada em #{m.created_at.strftime("%d/%m/%Y")}", m.picture.url, :target => '_blank', class: "btn btn-default", style:"margin: 5px;" %>
+            <% if current_user.tipo == "Administrador" %>
+              <%= link_to "", m, method: :delete, data: { confirm: "Tem certeza que deseja deletar esta multa?" }, class: "glyphicon glyphicon-trash btn btn-default", style:"margin: 5px 5px 5px 0px; position: static" %>
+            <% end %>
+            <br>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

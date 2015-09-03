@@ -33,8 +33,10 @@ class MotoristasController < ApplicationController
   
   def show
     add_breadcrumb "Buscar Motoristas", :buscar_motoristas_path
-    @motorista = Motorista.find(params[:id])
     add_breadcrumb "Motorista", :motorista_path
+    @motorista = Motorista.find(params[:id])
+    @atestado = Atestado.new
+    @multa = Multa.new
   end
   
   def edit
@@ -77,7 +79,7 @@ class MotoristasController < ApplicationController
     def motorista_params
       params.require(:motorista).permit(:nome, :rf, :cargo, :secao_original, 
                                         :secao_atual, :pontuacao, :local, :status,
-                                        :data_de_nasc, :data_posse)
+                                        :data_de_nasc, :data_posse, :atestado, :multa)
     end
     
     def params_antes(m)

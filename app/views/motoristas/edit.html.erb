@@ -3,7 +3,8 @@
     
     <h1 style="text-align: center;">Editar Motorista</h1>
     
-    <%= form_for(@motorista) do |f| %>
+    <%= form_for(@motorista, html: { multipart: true }) do |f| %>
+    
       <%= f.label :nome, "Nome", class: 'form_label' %>
       <%= f.text_field :nome, class: 'form-control formulario', :placeholder => @motorista.errors.full_messages_for(:nome).to_sentence %>
       

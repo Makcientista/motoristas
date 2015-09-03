@@ -30,5 +30,7 @@ Rails.application.routes.draw do
   get    'licenca_medica_indice' => 'pages#licenca_medica_indice'
   resources :motoristas
   resources :users
+  resources :atestados, only: [:create, :destroy]
+  resources :multas,    only: [:create, :destroy]
   
 end
