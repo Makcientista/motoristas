@@ -20,6 +20,7 @@ class PagesController < ApplicationController
   end
   
   def relatorio
+    add_breadcrumb "Relatórios - Log", :relatorio_log_path
     add_breadcrumb "Relatório", :relatorio_path
     @vila_mariana = Motorista.where("local = 'TRAF. V. MARIAN.' AND status ='Ativo'").count
     @vila_guilherme = Motorista.where("local = 'TRAF. V. GUILH.' AND status ='Ativo'").count
@@ -36,12 +37,13 @@ class PagesController < ApplicationController
   end
   
   def registro
+    add_breadcrumb "Relatórios - Log", :relatorio_log_path
     add_breadcrumb "Registro", :registro_path
     @registros = Registro.all
   end
   
   def relatorio_log
-    add_breadcrumb "Relatórios / Log", :relatorio_log_path
+    add_breadcrumb "Relatórios - Log", :relatorio_log_path
   end
   
   def licenca_medica_indice

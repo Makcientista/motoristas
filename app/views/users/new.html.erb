@@ -3,10 +3,11 @@
     
     <h1 style="text-align: center;">Cadastrar Usuário</h1>
     
-    <%= form_for(@user) do |f| %>      
+    <%= form_for(@user) do |f| %>
     
       <%= f.label :nome, "Nome", class: 'form_label' %>
       <%= f.text_field :nome, class: 'form-control formulario', :placeholder => @user.errors.full_messages_for(:nome).to_sentence %>
+
       
       <%= f.label :rf, "RF", class: 'form_label' %>
       <%= f.text_field :rf, maxlength: 7, class: 'form-control formulario', :placeholder => @user.errors.full_messages_for(:rf).to_sentence %>
