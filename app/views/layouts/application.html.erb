@@ -1,13 +1,13 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <title>S I K O N</title>
+      <%= favicon_link_tag 'favicon.ico' %>
+      <title>SIKON</title>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
     </head>
   <body>
-    
     <div class="noPrint" style="margin-bottom: 70px"><%= render 'layouts/header' %></div>
     
     <% if !flash.empty? %>
