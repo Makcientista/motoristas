@@ -2,7 +2,7 @@ class MultasController < ApplicationController
   
   def create
     @motorista = Motorista.find(params[:id])
-    @multa = @motorista.multas.build(picture: params[:multa][:picture])
+    @multa = @motorista.multas.build(picture: params[:multa][:picture], user: "#{current_user.nome} (#{current_user.tipo})")
     if @multa.save
       redirect_to @motorista
     else

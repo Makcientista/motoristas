@@ -2,7 +2,7 @@ class AtestadosController < ApplicationController
   
   def create
     @motorista = Motorista.find(params[:id])
-    @atestado = @motorista.atestados.build(picture: params[:atestado][:picture])
+    @atestado = @motorista.atestados.build(picture: params[:atestado][:picture], user: "#{current_user.nome} (#{current_user.tipo})")
     if @atestado.save
       redirect_to @motorista
     else
