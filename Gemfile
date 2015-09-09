@@ -12,8 +12,8 @@ gem 'uglifier',                '2.5.3'
 gem 'table_print'
 gem 'breadcrumbs_on_rails'
 gem 'carrierwave',             '0.10.0'
-gem 'fog',                     '1.23.0'
 gem 'sdoc',                    '0.4.0', group: :doc
+gem 'tzinfo-data'
 
 
 group :development, :test do

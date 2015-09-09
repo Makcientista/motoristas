@@ -87,7 +87,7 @@ class MotoristasController < ApplicationController
         nome: m.nome, rf: m.rf, cargo: m.cargo, 
         secao_original: m.secao_original, secao_atual: m.secao_atual,
         pontuacao: m.pontuacao, status: m.status, local: m.local,
-        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Antes', user: "#{current_user.nome} - #{current_user.tipo}"
+        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Antes', user: "#{current_user.nome} (#{current_user.tipo})"
       }
     end
     
@@ -96,7 +96,7 @@ class MotoristasController < ApplicationController
         nome: m.nome, rf: m.rf, cargo: m.cargo, 
         secao_original: m.secao_original, secao_atual: m.secao_atual,
         pontuacao: m.pontuacao, status: m.status, local: m.local,
-        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Depois', user: "#{current_user.nome} - #{current_user.tipo}"
+        data_de_nasc: m.data_de_nasc, data_posse: m.data_posse, momento: 'Depois', user: "#{current_user.nome} (#{current_user.tipo})"
       }
     end
 end
