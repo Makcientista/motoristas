@@ -3,7 +3,7 @@
     <% if logged_in? %>
       <ul class="nav navbar-nav navbar-left">
         <li style="font-weight: bold;">
-          <div><%= image_tag("Sikon.png", height: '42.6', width: '142', alt: "Sikon - Sistema de Controle de Motoristas") %></div>
+          <div><%=link_to image_tag("Sikon.png", height: '42.6', width: '142', alt: "Sikon - Sistema de Controle de Motoristas"), root_url %></div>
         </li>
         <li style="color: #999; margin-left: 40px;">
           <%= current_user.nome %> - <%= current_user.tipo %>
